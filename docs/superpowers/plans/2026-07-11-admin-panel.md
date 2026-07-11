@@ -13,7 +13,7 @@
 - No server-side framework, no Composer, no database — matches the rest of this project's zero-dependency approach (from the original site brief).
 - All admin-facing text is Dutch, written for a non-technical user (from HANDLEIDING.md's existing tone).
 - v1 is text-only — no photo upload, no color/theme editing (per approved spec, `docs/superpowers/specs/2026-07-11-admin-panel-design.md`).
-- This project directory is **not a git repository** (`git status` confirms `fatal: not a git repository`). Steps below that would normally end in `git add`/`git commit` are replaced with a verification step instead — do not run git commands in this project unless the user has explicitly asked for a repo to be initialized.
+- This project directory is a git repository (initialized specifically to support this plan's per-task commits; root commit is a baseline snapshot of the site before this feature). Local commit identity is already configured (`git config user.name`/`user.email`) — do not change it. Each task below ends with a commit; use `git add <specific files>` (never `git add -A`/`git add .`) so unrelated scratch files never enter a commit.
 - PHP is installed locally at `C:\Users\Micha\AppData\Local\Microsoft\WinGet\Packages\PHP.PHP.8.3_Microsoft.Winget.Source_8wekyb3d8bbwe\php.exe`, reachable as plain `php` via the wrapper script `C:\Users\Micha\bin\php`. Use bare `php ...` in all commands below.
 - Project root for all relative paths below: `C:\Users\Micha\source\repos\uitvaartendan` (referred to as `<root>`).
 
@@ -272,9 +272,15 @@ Expected: `Hero text: Je bent niet alleen. Ik loop met je mee.` and `Errors: []`
 
 Stop the server: find the PID listening on 5522 (`netstat -ano | grep 5522` on Windows, or `lsof -i :5522` elsewhere) and kill it.
 
-- [ ] **Step 5: Verification checkpoint (no git repo — skip commit)**
+- [ ] **Step 5: Commit**
 
-Confirm Step 4's output matches exactly before moving to Task 2. This project has no git repository, so there is nothing to commit — just proceed.
+Confirm Step 4's output matches exactly, then:
+
+```bash
+cd "<root>"
+git add content.js render.js index.html
+git commit -m "Split content.js into data-only file plus render.js logic"
+```
 
 ---
 
@@ -283,9 +289,11 @@ Confirm Step 4's output matches exactly before moving to Task 2. This project ha
 **Files:**
 - Create: `<root>/admin/lib.php`
 - Create: `<root>/admin/data/content.data.php` (seeded with today's `SITE_CONTENT` values)
-- Create: `<root>/admin/data/config.php` (bcrypt hash of a freshly generated password)
+- Create: `<root>/admin/data/config.php` (bcrypt hash of a freshly generated password — contains a secret, must not be committed; see Step 8)
 - Create: `<root>/admin/data/.htaccess`
-- Create: `<root>/admin/data/backups/.gitkeep` (empty placeholder so the folder exists; content is irrelevant)
+- Create/modify: `<root>/.gitignore` (excludes the secret and the runtime-generated files below from version control)
+
+Note: `admin/data/lockout.data.php` and everything under `admin/data/backups/` are runtime-generated state (login-attempt counters, save-history snapshots) — not source, and not created by this task. `admin_save_lockout()`/`admin_backup_current_content()` (Step 1) create them on demand the first time they're needed, both locally during Step 6's test and later on the live server.
 
 **Interfaces:**
 - Produces (used by every later task): `admin_session_start()`, `admin_is_logged_in()`, `admin_require_login()`, `admin_csrf_token()`, `admin_csrf_check($token)`, `admin_load_content()` (returns assoc array), `admin_save_content(array $data)` (backs up, writes `content.data.php`, regenerates `content.js`), `admin_current_password_hash()` (returns string|null), `admin_set_password(string $plain)`, `admin_lockout_seconds_remaining()` (int), `admin_lockout_record_failure()`, `admin_lockout_reset()`.
@@ -608,10 +616,22 @@ Write `<root>/admin/data/.htaccess`:
 </IfModule>
 ```
 
-- [ ] **Step 5: Create the empty backups directory**
+- [ ] **Step 5: Create the empty backups directory and `.gitignore` the secret/runtime files**
 
 ```bash
 mkdir -p "<root>/admin/data/backups"
+```
+
+Write `<root>/.gitignore` (create it; this is the first thing in the project that needs one):
+
+```gitignore
+# Wachtwoord-hash — een geheim, hoort niet in git-geschiedenis.
+admin/data/config.php
+
+# Automatisch gegenereerde runtime-status — verandert bij elke
+# inlogpoging/opslag, is geen brondata, en hoort niet in git.
+admin/data/lockout.data.php
+admin/data/backups/
 ```
 
 (Replace `<root>` with the actual path when running.)
@@ -668,9 +688,21 @@ cat /tmp/resp1.txt
 
 Expected: both requests return `200` (since PHP's built-in dev server doesn't apply `.htaccess`) but **`0 bytes`** — confirming that even with no Apache-level protection at all, no data leaks, because the files only `return` a value with no `echo`. `/tmp/resp1.txt` should be empty. Stop the server afterward (`netstat -ano | grep 8010` then `taskkill //F //PID <pid>`, or `kill %1`).
 
-- [ ] **Step 8: Verification checkpoint (no git repo — skip commit)**
+- [ ] **Step 8: Commit**
 
-Confirm all of Step 6 and Step 7's expected outputs matched before moving to Task 3.
+Confirm all of Step 6 and Step 7's expected outputs matched, then:
+
+```bash
+cd "<root>"
+git add .gitignore admin/lib.php admin/data/content.data.php admin/data/.htaccess
+git status --short
+```
+
+Check the `git status --short` output before committing: it must show only the four files just added (`A  .gitignore`, `A  admin/lib.php`, `A  admin/data/content.data.php`, `A  admin/data/.htaccess`) — **not** `admin/data/config.php`, `admin/data/lockout.data.php`, or anything under `admin/data/backups/` (those are excluded by the `.gitignore` written in Step 5; if any of them show up as staged, the `.gitignore` wasn't picked up — stop and fix it before committing). Then:
+
+```bash
+git commit -m "Add admin data layer: session/CSRF/lockout helpers, seeded content, .htaccess"
+```
 
 ---
 
@@ -1211,9 +1243,15 @@ grep -c 'admin-badge' /tmp/dashboard.txt
 
 Expected: first `curl` returns `200` (the login form itself is a 200, it just shows the login screen instead of the dashboard); the login `curl` returns `200` if a `Location` header isn't followed — that's expected since `curl` doesn't follow redirects by default (confirm with `-i` if you want to see the `302 Location: /admin/` header explicitly); the two `grep -o` lines each print one match, confirming the form is pre-filled with real content; `grep -c admin-badge` prints a number `>= 1` confirming the `[INVULLEN]` fields are flagged. Stop the server afterward.
 
-- [ ] **Step 5: Verification checkpoint (no git repo — skip commit)**
+- [ ] **Step 5: Commit**
 
-Confirm Step 4's greps matched before moving to Task 4.
+Confirm Step 4's greps matched, then:
+
+```bash
+cd "<root>"
+git add admin/admin.css admin/admin.js admin/index.php
+git commit -m "Add admin login screen and content-editing dashboard"
+```
 
 ---
 
@@ -1429,9 +1467,15 @@ grep -o 'Je bent niet alleen' "<root>/content.js"
 
 Expected: `Restored from ...` followed by a path, and the `grep` finds `Je bent niet alleen` in `content.js` again (confirms the real content is back, not the `TEST` value from Step 2). Stop the PHP server.
 
-- [ ] **Step 4: Verification checkpoint (no git repo — skip commit)**
+- [ ] **Step 4: Commit**
 
-Confirm Steps 2 and 3's expected output matched before moving to Task 5.
+Confirm Steps 2 and 3's expected output matched, then:
+
+```bash
+cd "<root>"
+git add admin/save.php
+git commit -m "Add admin save handler with validation and CSRF check"
+```
 
 ---
 
@@ -1588,9 +1632,15 @@ grep -o 'Log in om de website te beheren' /tmp/after_logout.txt
 
 Expected: `302` (or similar redirect code), then the grep confirms the login screen shows again (session was destroyed). Stop the PHP server.
 
-- [ ] **Step 4: Verification checkpoint (no git repo — skip commit)**
+- [ ] **Step 4: Commit**
 
-Confirm Step 3's expected output matched before moving to Task 6.
+Confirm Step 3's expected output matched, then:
+
+```bash
+cd "<root>"
+git add admin/wachtwoord.php admin/logout.php
+git commit -m "Add admin password-change screen and logout"
+```
 
 ---
 
@@ -1665,9 +1715,9 @@ grep -o 'Je bent niet alleen' "<root>/content.js"
 
 Expected: match found. Stop the PHP server.
 
-- [ ] **Step 4: Verification checkpoint (no git repo — skip commit)**
+- [ ] **Step 4: Verification checkpoint (no commit — no files changed)**
 
-Confirm Steps 1-3's expected output matched before moving to Task 7.
+Confirm Steps 1-3's expected output matched before moving to Task 7. This task is pure verification of Task 2's `admin/lib.php` (per its Files section, nothing is created or modified) — nothing to add or commit.
 
 ---
 
@@ -1698,9 +1748,15 @@ grep -o '/admin/' "<root>/HANDLEIDING.md" | head -3
 
 Expected: a heading count consistent with the previous file plus one new `##` section, and at least one match for `/admin/`.
 
-- [ ] **Step 3: Verification checkpoint (no git repo — skip commit)**
+- [ ] **Step 3: Commit**
 
-Confirm Step 2's expected output matched before moving to Task 8.
+Confirm Step 2's expected output matched, then:
+
+```bash
+cd "<root>"
+git add HANDLEIDING.md
+git commit -m "Document /admin in HANDLEIDING.md, demote Notepad method to fallback"
+```
 
 ---
 
@@ -1810,9 +1866,9 @@ grep -c 'Should Not Save' "<root>/content.js"
 
 Expected: HTTP status `403`, the grep for the Dutch error message matches, and the final grep count is `0` — confirming a forged request without a valid CSRF token is rejected and never touches `content.js`. Stop the PHP server (`netstat -ano | grep 8010`, then `taskkill //F //PID <pid>`).
 
-- [ ] **Step 5: Verification checkpoint (no git repo — skip commit)**
+- [ ] **Step 5: Verification checkpoint (no commit — no files changed)**
 
-Confirm all of Task 8's expected outputs matched. This is the last task — once it passes, the feature is complete and ready to report to the user, including:
+Confirm all of Task 8's expected outputs matched. This task is pure verification (per its Files section, nothing is created or modified) — nothing to add or commit. This is the last task — once it passes, the feature is complete and ready to report to the user, including:
 - The final admin password (from Task 2 Step 3, unless changed again in testing — Task 5 Step 3 already restores it).
 - A reminder that `/admin` only works once these files are uploaded to Yourhosting via FTP (PHP doesn't run under `npx serve`, only under a real PHP-enabled host or `php -S` locally) — so the delivery message must include the full updated file list to upload, matching what's in `<root>` now.
 
