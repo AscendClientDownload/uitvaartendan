@@ -1,0 +1,47 @@
+# ============================================================
+# OPTIONELE BEVEILIGINGSHEADERS — ALLEEN VOOR MICHA
+# ============================================================
+# Dit bestand is GEEN onderdeel van de live website. Het is een
+# suggestie voor extra beveiliging die alleen werkt via de
+# webserver zelf (niet via HTML/CSS/JS), en die de rest van deze
+# website niet kan instellen.
+#
+# Yourhosting draait doorgaans op Apache, waar dit bestand
+# (hernoemd naar ".htaccess") automatisch wordt gelezen.
+#
+# HOE TE GEBRUIKEN:
+# 1. Hernoem dit bestand naar ".htaccess" (met de punt vooraan,
+#    zonder ".txt" erachter).
+# 2. Upload het naar de hoofdmap van de website (naast index.html).
+# 3. Bezoek de website direct daarna. Werkt alles nog normaal?
+#    Dan is het gelukt. Zie je een serverfout (bv. "500 Internal
+#    Server Error")? Verwijder het bestand dan weer van de server
+#    — de website werkt dan weer zoals daarvoor. Niets gaat
+#    verloren, dit bestand kan nooit de website zelf beschadigen.
+# 4. Zet de HSTS-regel (zie onderaan) pas aan nadat je hebt
+#    gecontroleerd dat https://www.uitvaartendan.nl al goed werkt
+#    met een geldig SSL-certificaat (het groene slotje in de
+#    browserbalk).
+# ============================================================
+
+<IfModule mod_headers.c>
+  # Voorkomt dat de browser bestandstypen "raadt" — een kleine
+  # bescherming tegen bepaalde soorten aanvallen.
+  Header set X-Content-Type-Options "nosniff"
+
+  # Voorkomt dat de website in een <iframe> op een andere,
+  # kwaadaardige website getoond kan worden ("clickjacking").
+  Header set X-Frame-Options "SAMEORIGIN"
+
+  # Stuurt minder van je bezoekers' surfgedrag door naar andere
+  # sites wanneer iemand op een link buiten de website klikt.
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Schakelt browserfuncties uit die deze website toch niet gebruikt.
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+
+  # LET OP — zet deze regel pas aan (verwijder de #) als je zeker
+  # weet dat HTTPS goed werkt. Dit dwingt bezoekers 2 jaar lang
+  # altijd de beveiligde (https://) versie van de site te gebruiken.
+  # Header set Strict-Transport-Security "max-age=63072000; includeSubDomains"
+</IfModule>
