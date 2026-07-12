@@ -118,18 +118,9 @@ h1 { font-size: clamp(2.25rem, 4vw + 1rem, 3.4rem); }
 h2 { font-size: clamp(1.75rem, 2.5vw + 1rem, 2.5rem); }
 h3 { font-size: clamp(1.3rem, 1.2vw + 1rem, 1.6rem); }
 
-p, .wcms-text {
+p {
   font-size: var(--fs-lg);
   color: var(--color-text-light);
-}
-
-/* .wcms-text vervangt <p> op plekken waar de tekst via /admin
-   bewerkbaar is. WonderCMS zet daar een <div> omheen zodra je bent
-   ingelogd, en een <p> mag geen <div> als kind hebben (de browser
-   knipt de <p> dan stuk) — daarom een <div> met dezelfde opmaak. */
-.wcms-text {
-  display: block;
-  margin: 0;
 }
 
 .container {
@@ -458,8 +449,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   color: var(--color-text);
 }
 
-.prose p + p,
-.prose .wcms-text + .wcms-text {
+.prose p + p {
   margin-top: 18px;
 }
 
@@ -779,50 +769,4 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .form-card, .pricing-card {
     padding: 26px;
   }
-}
-
-/* ---------- /admin bewerkmodus (alleen zichtbaar als je bent ingelogd) ---------- */
-/* WonderCMS zet elk bewerkbaar stukje tekst in een <div> zodra je bent
-   ingelogd, zodat je erop kunt klikken om te bewerken. Deze regel zorgt
-   ervoor dat die <div> geen nieuwe regel begint binnen knoppen, titels
-   en labeltjes — voor gewone bezoekers (niet ingelogd) verandert er
-   niets, want dan bestaat deze <div> niet eens. */
-h1 .editText.editable,
-h2 .editText.editable,
-h3 .editText.editable,
-p .editText.editable,
-.btn .editText.editable,
-.eyebrow .editText.editable,
-.pricing-price .editText.editable,
-.contact-info-item a .editText.editable,
-.wcms-text .editText.editable {
-  display: inline;
-}
-
-.pricing-list-wrap .editText.editable ul,
-.pricing-list-wrap .editText.editable {
-  margin: 0;
-}
-
-.pricing-list-wrap ul {
-  margin: 24px 0 28px;
-  padding-left: 0;
-  list-style: none;
-}
-
-.pricing-list-wrap li {
-  position: relative;
-  padding-left: 28px;
-  margin-bottom: 12px;
-  font-size: var(--fs-base);
-  color: var(--color-text);
-}
-
-.pricing-list-wrap li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: var(--color-sage-dark);
-  font-weight: 700;
 }

@@ -1,7 +1,16 @@
 # /admin via WonderCMS — what was built
 
 Date: 2026-07-12
-Status: implemented and locally tested
+Status: **SUPERSEDED** — deployed successfully to two PHP hosts in turn
+(Yourhosting, then InfinityFree) and hit a real, unfixable-from-our-side
+problem at each: Yourhosting's purchased package turned out to be
+email-only (no PHP execution at all), and InfinityFree's free-tier
+anti-bot layer intercepted the login POST and silently dropped the
+password before it reached WonderCMS. The user asked to move to Netlify
+instead; see `docs/superpowers/specs/2026-07-12-netlify-decap-cms.md`.
+Kept here as a record — the WonderCMS integration approach itself worked
+correctly (verified end-to-end locally); it was the hosting environments
+that failed it.
 
 ## Why this replaced the custom admin panel
 

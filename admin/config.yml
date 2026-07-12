@@ -1,0 +1,131 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "content"
+    label: "Website teksten"
+    files:
+      - file: "content.yml"
+        label: "Alle teksten"
+        name: "site_content"
+        fields:
+          - label: "Bedrijfsgegevens"
+            name: "bedrijf"
+            widget: "object"
+            fields:
+              - { label: "Bedrijfsnaam", name: "naam", widget: "string" }
+              - { label: "Slogan", name: "slogan", widget: "string" }
+              - { label: "Telefoonnummer (zoals getoond, bv. 06-19421856)", name: "telefoon", widget: "string" }
+              - { label: "Telefoonnummer (voor de belknop, alleen cijfers)", name: "telefoon_href", widget: "string" }
+              - { label: "E-mailadres", name: "email", widget: "string" }
+              - { label: "Straat en huisnummer", name: "straat", widget: "string" }
+              - { label: "Postcode en plaats", name: "postcode_plaats", widget: "string" }
+              - { label: "Openingstijden", name: "openingstijden", widget: "string" }
+
+          - label: "Menu (bovenin de website)"
+            name: "navigatie"
+            widget: "object"
+            fields:
+              - { label: "\"Home\"", name: "home", widget: "string" }
+              - { label: "\"Over mij\"", name: "over_ons", widget: "string" }
+              - { label: "\"Diensten\"", name: "diensten", widget: "string" }
+              - { label: "\"Contact\"", name: "contact", widget: "string" }
+              - { label: "Knop rechtsboven", name: "cta_knop", widget: "string" }
+
+          - label: "Home"
+            name: "home"
+            widget: "object"
+            fields:
+              - { label: "Hoofdtitel (hero)", name: "hero_titel", widget: "string" }
+              - { label: "Ondertitel (hero)", name: "hero_ondertitel", widget: "text" }
+              - { label: "Knoptekst (hero)", name: "hero_knop", widget: "string" }
+              - { label: "Titel \"Welkom\"-sectie", name: "intro_titel", widget: "string" }
+              - { label: "Tekst \"Welkom\"-sectie", name: "intro_tekst", widget: "text" }
+              - { label: "Titel \"Diensten\"-sectie", name: "diensten_titel", widget: "string" }
+              - { label: "Tekst \"Diensten\"-sectie", name: "diensten_tekst", widget: "text" }
+              - { label: "Knoptekst \"Diensten\"-sectie", name: "diensten_knop", widget: "string" }
+              - { label: "Titel \"Over Annabelle\"-sectie", name: "over_titel", widget: "string" }
+              - { label: "Tekst \"Over Annabelle\"-sectie", name: "over_tekst", widget: "text" }
+              - { label: "Knoptekst \"Over Annabelle\"-sectie", name: "over_knop", widget: "string" }
+              - { label: "Titel \"Ook voor organisaties\"", name: "voor_wie_titel", widget: "string" }
+              - { label: "Tekst \"Ook voor organisaties\"", name: "voor_wie_tekst", widget: "text" }
+              - { label: "Titel afsluitende oproep", name: "cta_titel", widget: "string" }
+              - { label: "Tekst afsluitende oproep", name: "cta_tekst", widget: "text" }
+              - { label: "Knoptekst afsluitende oproep", name: "cta_knop", widget: "string" }
+
+          - label: "Over mij"
+            name: "over_ons"
+            widget: "object"
+            fields:
+              - { label: "Titel", name: "titel", widget: "string" }
+              - { label: "Introzin", name: "intro", widget: "text" }
+              - { label: "Paragraaf 1", name: "paragraaf_1", widget: "text" }
+              - { label: "Paragraaf 2", name: "paragraaf_2", widget: "text" }
+              - { label: "Paragraaf 3", name: "paragraaf_3", widget: "text" }
+              - { label: "Titel missie", name: "missie_titel", widget: "string" }
+              - { label: "Tekst missie", name: "missie_tekst", widget: "text" }
+              - { label: "Citaat", name: "citaat", widget: "string" }
+              - { label: "Titel afsluitende oproep", name: "cta_titel", widget: "string" }
+              - { label: "Knoptekst afsluitende oproep", name: "cta_knop", widget: "string" }
+
+          - label: "Diensten"
+            name: "diensten"
+            widget: "object"
+            fields:
+              - { label: "Titel", name: "titel", widget: "string" }
+              - { label: "Introzin", name: "intro", widget: "text" }
+              - label: "Pakket 1"
+                name: "pakket_1"
+                widget: "object"
+                fields:
+                  - { label: "Naam", name: "naam", widget: "string" }
+                  - { label: "Prijs", name: "prijs", widget: "string" }
+                  - { label: "Beschrijving", name: "beschrijving", widget: "text" }
+                  - label: "Onderdelen van dit pakket"
+                    name: "items"
+                    widget: "list"
+                    field: { label: "Onderdeel", name: "item", widget: "string" }
+              - label: "Pakket 2"
+                name: "pakket_2"
+                widget: "object"
+                fields:
+                  - { label: "Naam", name: "naam", widget: "string" }
+                  - { label: "Prijs", name: "prijs", widget: "string" }
+                  - { label: "Beschrijving", name: "beschrijving", widget: "text" }
+                  - label: "Onderdelen van dit pakket"
+                    name: "items"
+                    widget: "list"
+                    field: { label: "Onderdeel", name: "item", widget: "string" }
+              - { label: "Titel \"Altijd op maat\"", name: "op_maat_titel", widget: "string" }
+              - { label: "Tekst \"Altijd op maat\"", name: "op_maat_tekst", widget: "text" }
+              - { label: "Titel \"Ook voor professionals\"", name: "doelgroepen_titel", widget: "string" }
+              - { label: "Tekst \"Ook voor professionals\"", name: "doelgroepen_tekst", widget: "text" }
+              - { label: "Titel afsluitende oproep", name: "cta_titel", widget: "string" }
+              - { label: "Tekst afsluitende oproep", name: "cta_tekst", widget: "text" }
+              - { label: "Knoptekst afsluitende oproep", name: "cta_knop", widget: "string" }
+
+          - label: "Contact"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Titel", name: "titel", widget: "string" }
+              - { label: "Introzin", name: "intro", widget: "text" }
+              - { label: "Titel formulier", name: "formulier_titel", widget: "string" }
+              - { label: "Label \"Naam\"-veld", name: "label_naam", widget: "string" }
+              - { label: "Label \"E-mailadres\"-veld", name: "label_email", widget: "string" }
+              - { label: "Label \"Telefoonnummer\"-veld", name: "label_telefoon", widget: "string" }
+              - { label: "Label \"Bericht\"-veld", name: "label_bericht", widget: "string" }
+              - { label: "Knoptekst versturen", name: "knop_verzenden", widget: "string" }
+              - { label: "Titel \"Contactgegevens\"", name: "gegevens_titel", widget: "string" }
+              - { label: "Titel kaart", name: "kaart_titel", widget: "string" }
+
+          - label: "Footer"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { label: "Tekst", name: "tekst", widget: "text" }
+              - { label: "Auteursrecht-tekst", name: "copyright", widget: "string" }

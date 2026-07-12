@@ -1,0 +1,10 @@
+{
+  "name": "uitvaartendan",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-content.js"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}

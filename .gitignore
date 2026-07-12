@@ -1,12 +1,3 @@
-# WonderCMS runtime data — bevat de teksten die Annabelle via /admin
-# invult, plus een wachtwoord-hash (een geheim). Hoort niet in git.
-# Moet wel gewoon via FTP mee-geupload worden naar de live server.
-data/
-
-# Automatisch aangemaakt door WonderCMS, leeg zolang er geen losse
-# plugins zijn geïnstalleerd.
-plugins/
-
-# Alleen voor lokaal testen met `php -S`. Niet uploaden — op Apache
-# (Yourhosting) doet .htaccess dit al.
-local-test-router.php
+# Node dependencies — Netlify runs "npm install" itself during the
+# build, so this never needs to be committed.
+node_modules/
