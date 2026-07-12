@@ -1,0 +1,10 @@
+{
+    "version": 1,
+    "themes": {
+        "uitvaartendan": {
+            "name": "Uitvaart en dan?",
+            "summary": "Aangepast thema voor uitvaartendan.nl — niet via de Instellingen-pagina bijwerken of verwijderen.",
+            "version": "1.0.0"
+        }
+    }
+}

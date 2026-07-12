@@ -1,5 +1,10 @@
 # /admin Content-Editing Panel Implementation Plan
 
+> **SUPERSEDED — not executed.** Before starting this plan, the user asked
+> to check for an existing free tool instead of building one from scratch.
+> We adopted WonderCMS (see `docs/superpowers/specs/2026-07-12-wondercms-integration.md`).
+> Kept here as a record only; do not execute this plan.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Give Annabelle a password-protected `/admin` panel where she edits the site's text through a web form, and hitting "Alles opslaan" publishes the change immediately on Yourhosting (PHP-enabled shared hosting) — no FTP, no code.

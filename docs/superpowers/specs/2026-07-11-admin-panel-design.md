@@ -1,7 +1,11 @@
 # /admin content-editing panel — design
 
 Date: 2026-07-11
-Status: approved by user, ready for implementation plan
+Status: **SUPERSEDED** — the user asked to check for an existing free tool
+before building this custom, and we adopted WonderCMS instead (see
+`docs/superpowers/specs/2026-07-12-wondercms-integration.md`). Kept here as a
+record of the design work and the reasoning that led to switching approaches;
+none of this was implemented.
 
 ## Purpose
 

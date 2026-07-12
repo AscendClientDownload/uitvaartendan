@@ -1,0 +1,17 @@
+Options -Indexes
+ServerSignature Off
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ index.php?page=$1 [QSA,L]
+RewriteRule database.js - [F]
+RewriteRule cache.json - [F]
+
+# Extra beveiligingsheaders (optioneel ondersteund, breekt niets als
+# mod_headers niet beschikbaar is op de server).
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
