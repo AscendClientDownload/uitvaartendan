@@ -26,37 +26,42 @@ const SITE_CONTENT = {
   },
   "home": {
     "hero_titel": "Je bent niet alleen. Ik loop met je mee.",
-    "hero_ondertitel": "Praktische en persoonlijke ondersteuning voor nabestaanden, in de periode na een uitvaart.",
-    "hero_knop": "Neem contact op",
-    "intro_titel": "Na de uitvaart begint het pas",
     "intro_tekst": "Welkom bij Uitvaart en dan? Ontstaan vanuit liefde voor de mens en het ontzorgen in een kwetsbare periode. Na een overlijden is er veel te bieden op het gebied van emotionele ondersteuning — echter de praktische en vooral ook persoonlijke begeleiding ontbreekt als schakel na een uitvaart. Je bent niet alleen, ik loop met je mee.",
-    "diensten_titel": "Hoe ik je kan helpen",
-    "diensten_tekst": "Van het opstellen van een overzicht met alles wat geregeld moet worden, tot persoonlijke begeleiding bij elke stap. Ik bied duidelijke pakketten, aangepast aan wat jij op dit moment nodig hebt.",
+    "hero_knop": "Neem contact op",
     "diensten_knop": "Bekijk de diensten",
-    "over_titel": "Over Annabelle",
-    "over_tekst": "Ik ben Annabelle Zaal, 48 jaar, woonachtig in Houten. Vanuit mijn eigen ervaringen weet ik hoeveel er op nabestaanden afkomt nadat een uitvaart voorbij is — en hoe fijn het is om daarin niet alleen te staan.",
-    "over_knop": "Lees meer over mij",
-    "voor_wie_titel": "Ook voor organisaties",
-    "voor_wie_tekst": "Naast particulieren werk ik ook samen met uitvaartorganisaties, notarissen, mantelzorgorganisaties, hospices, verpleegtehuizen en WMO-loketten die hun cliënten graag goed doorverwijzen.",
-    "cta_titel": "Zullen we kennismaken?",
     "cta_tekst": "Neem gerust contact op voor een vrijblijvend gesprek. Samen kijken we wat jij nodig hebt.",
-    "cta_knop": "Neem contact op"
+    "voor_wie_tekst": "Naast particulieren werk ik ook samen met uitvaartorganisaties, notarissen, mantelzorgorganisaties, hospices, verpleegtehuizen en WMO-loketten die hun cliënten graag goed doorverwijzen.",
+    "over_knop": "Lees meer over mij",
+    "over_tekst": "Ik ben Annabelle Zaal, 48 jaar, woonachtig in Houten. Vanuit mijn eigen ervaringen weet ik hoeveel er op nabestaanden afkomt nadat een uitvaart voorbij is — en hoe fijn het is om daarin niet alleen te staan.",
+    "intro_titel": "Na de uitvaart begint het pas",
+    "cta_knop": "Neem contact op",
+    "diensten_tekst": "Van het opstellen van een overzicht met alles wat geregeld moet worden, tot persoonlijke begeleiding bij elke stap. Ik bied duidelijke pakketten, aangepast aan wat jij op dit moment nodig hebt.",
+    "cta_titel": "Zullen we kennismaken?",
+    "voor_wie_titel": "Ook voor organisaties",
+    "hero_ondertitel": "Praktische en persoonlijke ondersteuning voor nabestaanden, in de periode na een uitvaart.",
+    "over_titel": "Over Annabelle",
+    "diensten_titel": "Hoe ik je kan helpen"
   },
   "over_ons": {
+    "citaat": "Je bent niet alleen. Ik loop met je mee.",
     "titel": "Over mij",
     "intro": "Ik ben Annabelle Zaal, 48 jaar, en samen met mijn man en drie kinderen woon ik in Houten.",
     "paragraaf_1": "Vanuit mijn eigen ervaringen weet ik hoeveel er op nabestaanden afkomt nadat een uitvaart voorbij is. Naast verdriet en machteloosheid moeten er ook behoorlijk wat praktische zaken worden geregeld. Juist in die periode, waarin je eigenlijk alleen maar rust nodig hebt, wordt er veel van je gevraagd.",
     "paragraaf_2": "[INVULLEN — Annabelle vult hier haar persoonlijke verhaal verder aan]",
     "paragraaf_3": "[INVULLEN]",
-    "missie_titel": "Waarom ik dit doe",
+    "cta_knop": "Neem contact op",
     "missie_tekst": "Het persoonlijke contact, de praktische organisatie en de mogelijkheid om alles aan te passen per situatie — dat is wat Uitvaart en dan? anders maakt. Ik loop met je mee, stap voor stap, in het tempo dat bij jou past.",
-    "citaat": "Je bent niet alleen. Ik loop met je mee.",
     "cta_titel": "Nieuwsgierig wat ik voor jou kan betekenen?",
-    "cta_knop": "Neem contact op"
+    "missie_titel": "Waarom ik dit doe"
   },
   "diensten": {
+    "op_maat_tekst": "Geen enkele situatie is hetzelfde. Naast de vaste pakketten is er altijd ruimte om onderdelen toe te voegen of aan te passen, zodat de begeleiding precies aansluit bij wat jij nodig hebt.",
+    "doelgroepen_tekst": "Bent u werkzaam bij een uitvaartorganisatie, notariskantoor, mantelzorgorganisatie, hospice, verpleeghuis of WMO-loket? Ik denk graag mee over hoe ik als vaste partner nabestaanden praktisch kan ondersteunen na een overlijden.",
     "titel": "Diensten",
+    "cta_tekst": "Neem contact op voor een vrijblijvend gesprek.",
+    "op_maat_titel": "Altijd op maat",
     "intro": "Ik werk met duidelijke pakketten als basis, maar elke situatie is anders. In een kennismakingsgesprek bekijken we samen wat het beste bij jouw situatie past.",
+    "doelgroepen_titel": "Ook voor professionals",
     "pakket_1": {
       "naam": "Basispakket",
       "prijs": "€ 395,-",
@@ -75,25 +80,20 @@ const SITE_CONTENT = {
         "[INVULLEN]"
       ]
     },
-    "op_maat_titel": "Altijd op maat",
-    "op_maat_tekst": "Geen enkele situatie is hetzelfde. Naast de vaste pakketten is er altijd ruimte om onderdelen toe te voegen of aan te passen, zodat de begeleiding precies aansluit bij wat jij nodig hebt.",
-    "doelgroepen_titel": "Ook voor professionals",
-    "doelgroepen_tekst": "Bent u werkzaam bij een uitvaartorganisatie, notariskantoor, mantelzorgorganisatie, hospice, verpleeghuis of WMO-loket? Ik denk graag mee over hoe ik als vaste partner nabestaanden praktisch kan ondersteunen na een overlijden.",
-    "cta_titel": "Benieuwd wat bij jou past?",
-    "cta_tekst": "Neem contact op voor een vrijblijvend gesprek.",
-    "cta_knop": "Neem contact op"
+    "cta_knop": "Neem contact op",
+    "cta_titel": "Benieuwd wat bij jou past?"
   },
   "contact": {
-    "titel": "Contact",
-    "intro": "Heb je een vraag of wil je kennismaken? Neem gerust contact op — telefonisch, per e-mail of via het formulier hieronder.",
     "formulier_titel": "Stuur een bericht",
-    "label_naam": "Naam",
-    "label_email": "E-mailadres",
-    "label_telefoon": "Telefoonnummer",
+    "titel": "Contact",
     "label_bericht": "Bericht",
+    "label_naam": "Naam",
+    "intro": "Heb je een vraag of wil je kennismaken? Neem gerust contact op — telefonisch, per e-mail of via het formulier hieronder.",
+    "label_email": "E-mailadres",
     "knop_verzenden": "Verstuur bericht",
+    "kaart_titel": "Werkgebied",
     "gegevens_titel": "Contactgegevens",
-    "kaart_titel": "Werkgebied"
+    "label_telefoon": "Telefoonnummer"
   },
   "footer": {
     "tekst": "Praktische en persoonlijke begeleiding voor nabestaanden in Houten en omgeving.",
