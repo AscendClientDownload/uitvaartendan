@@ -1,3 +1,6 @@
 # Node dependencies — Netlify runs "npm install" itself during the
 # build, so this never needs to be committed.
 node_modules/
+
+# Local Netlify folder
+.netlify

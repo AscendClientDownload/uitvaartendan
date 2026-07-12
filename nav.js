@@ -27,7 +27,10 @@ function buildNav() {
 
   return `
     <div class="nav-inner">
-      <a href="#home" class="nav-logo">${bedrijf.naam}</a>
+      <a href="#home" class="nav-logo">
+        <img src="/images/logo-icon.png" alt="" class="nav-logo-icon" width="40" height="40">
+        <span>${bedrijf.naam}</span>
+      </a>
       <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Menu openen">
         <span></span><span></span><span></span>
       </button>
@@ -49,7 +52,7 @@ function buildFooter() {
   return `
     <div class="footer-inner">
       <div class="footer-col">
-        <p class="footer-logo">${bedrijf.naam}</p>
+        <p class="footer-logo"><img src="/images/logo-icon.png" alt="" width="32" height="32">${bedrijf.naam}</p>
         <p class="footer-text">${footer.tekst}</p>
       </div>
       <div class="footer-col">
