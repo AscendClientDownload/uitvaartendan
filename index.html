@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https://www.google.com; form-action https://formspree.io; base-uri 'self';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https://www.google.com; form-action 'self'; base-uri 'self';">
   <title>Uitvaart en dan? | Praktische begeleiding voor nabestaanden in Houten</title>
   <meta name="description" content="Na een uitvaart begint het pas. Annabelle Zaal helpt nabestaanden stap voor stap met de praktische zaken die na een overlijden geregeld moeten worden.">
 
@@ -285,14 +285,14 @@
           <div class="form-card">
             <h3 data-content="contact.formulier_titel" style="margin-bottom: 24px;"></h3>
 
-            <form action="https://formspree.io/f/mgojjvwy" method="POST">
-
-              <!-- Onderwerp van de e-mail die Annabelle ontvangt -->
-              <input type="hidden" name="_subject" value="Nieuw bericht via website Uitvaart en dan?">
+            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="contact">
 
               <!-- Spamval: onzichtbaar voor mensen, spam-robots vullen dit vaak automatisch in.
-                   Formspree negeert een bericht stil als dit veld is ingevuld. Niet verwijderen. -->
-              <input type="text" name="_gotcha" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+                   Netlify negeert een bericht stil als dit veld is ingevuld. Niet verwijderen. -->
+              <p class="form-honeypot" aria-hidden="true">
+                <label>Niet invullen: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+              </p>
 
               <div class="form-group">
                 <label for="naam" data-content="contact.label_naam"></label>
