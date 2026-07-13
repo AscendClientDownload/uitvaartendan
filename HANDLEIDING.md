@@ -65,9 +65,9 @@ e-mail om een nieuw wachtwoord in te stellen.
 
 ---
 
-## 2. Kleuren, foto's en het contactformulier
+## 2. Kleuren en foto's
 
-Deze drie zijn iets technischer, omdat ze in de broncode van de
+Deze twee zijn iets technischer, omdat ze in de broncode van de
 website staan (niet in het beheerscherm) en via GitHub gepubliceerd
 moeten worden. **Vraag dit aan Micha** — onderstaande is vooral
 bedoeld zodat je begrijpt wat er gebeurt:
@@ -76,13 +76,17 @@ bedoeld zodat je begrijpt wat er gebeurt:
   hexcodes (bijvoorbeeld `#8FA593`).
 - **Foto's** vervangen de gekleurde placeholder-vlakken, herkenbaar
   aan `<!-- VERVANG MET FOTO: ... -->` in `index.html`.
-- **Het contactformulier** wordt aangesloten via een gratis dienst
-  genaamd Formspree, ingesteld in `index.html` (zoek naar `VERVANG
-  DIT MET JE FORMSPREE ENDPOINT`).
 
 Micha past het aan, "commit" en "pusht" het naar GitHub, en de
 website bouwt zichzelf automatisch opnieuw op (net als bij een
 tekstwijziging — 30 tot 90 seconden).
+
+Het **contactformulier** hoeft niemand meer aan te sluiten — dat
+werkt via Netlify Forms (ingebouwd in de hosting) en stuurt berichten
+automatisch naar `info@uitvaartendan.nl`. Wil je dat naar een ander
+e-mailadres laten sturen? Dat regelt Micha via het Netlify-dashboard
+(Project configuration → Forms), geen wijziging in de website zelf
+nodig.
 
 ---
 
