@@ -25,7 +25,7 @@ const SITE_CONTENT = {
     "cta_knop": "Neem contact op"
   },
   "home": {
-    "hero_titel": "Je bent niet alleen. Ik loop met je mee.",
+    "hero_titel": "Je bent niet alleen.\nIk loop met je mee.",
     "intro_tekst": "Welkom bij Uitvaart en dan? Ontstaan vanuit liefde voor de mens en het ontzorgen in een kwetsbare periode. Na een overlijden is er veel te bieden op het gebied van emotionele ondersteuning — echter de praktische en vooral ook persoonlijke begeleiding ontbreekt als schakel na een uitvaart. Je bent niet alleen, ik loop met je mee.",
     "hero_knop": "Neem contact op",
     "diensten_knop": "Bekijk de diensten",

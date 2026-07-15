@@ -393,6 +393,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
    plekken (bijv. de boomstam) — zonder de foto zelf af te dekken. */
 .hero-text h1 {
   text-shadow: 0 0 24px var(--color-bg), 0 0 12px var(--color-bg);
+  white-space: pre-line;
 }
 
 .hero-text p {
