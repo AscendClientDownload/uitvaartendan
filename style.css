@@ -842,7 +842,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   }
 }
 
-@media (max-width: 760px) {
+/* Het menu heeft met de extra juridische tabs meer breedte nodig dan
+   er op een normaal laptopscherm bij past voordat het gaat wrappen —
+   daarom klapt het al bij 1200px in tot het hamburgermenu, ruim voor
+   het écht te krap wordt. */
+@media (max-width: 1200px) {
   .nav-toggle {
     display: flex;
   }
@@ -888,7 +892,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     border-left: none;
     border-top: 1px solid var(--color-border);
   }
+}
 
+@media (max-width: 760px) {
   .section {
     padding: 56px 0;
   }
