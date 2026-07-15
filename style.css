@@ -344,35 +344,59 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 /* ---------- Hero ---------- */
+/* Sfeerfoto als vervaagde achtergrond: witte waas + blur, zodat de
+   tekst er overheen goed leesbaar blijft (zelfde effect als Annabelle's
+   fotobewerking — witte achtergrond + foto op ~45% dekking, vervaagd). */
 .hero {
-  padding: 88px 0 96px;
-  background: linear-gradient(160deg, var(--color-sky-light) 0%, var(--color-bg) 55%, var(--color-lavender-light) 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 96px 0 104px;
+  background: var(--color-bg);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: -20px;
+  background-image: url("/images/hero-achtergrond.jpg");
+  background-size: cover;
+  background-position: center 65%;
+  filter: blur(10px);
+  opacity: 0.45;
+}
+
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-bg);
+  opacity: 0.55;
 }
 
 .hero-inner {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 56px;
-  align-items: center;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-text {
+  max-width: 640px;
 }
 
 .hero-text p {
   margin-top: 20px;
   max-width: 46ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-actions {
   margin-top: 32px;
   display: flex;
+  justify-content: center;
   gap: 16px;
   flex-wrap: wrap;
-}
-
-.hero-image {
-  aspect-ratio: 4 / 3;
-  border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--color-sage-light), var(--color-sky-light) 50%, var(--color-lavender-light));
-  box-shadow: var(--shadow-soft);
 }
 
 /* ---------- Cards ---------- */
@@ -821,7 +845,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 /* ---------- Responsief ---------- */
 @media (max-width: 900px) {
-  .hero-inner,
   .split,
   .contact-grid {
     grid-template-columns: 1fr;
