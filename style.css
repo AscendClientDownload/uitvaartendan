@@ -252,8 +252,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   padding: 18px 24px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  /* Niet space-between: op de bredere balk zorgde dat voor een grote
+     lege ruimte tussen het logo en "Home". Het menu staat nu dicht
+     bij het logo, en alleen de CTA-knop wordt naar rechts geduwd. */
+  gap: 56px;
 }
 
 .nav-logo {
@@ -273,8 +275,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 .nav-menu {
+  flex: 1;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 24px;
 }
 
