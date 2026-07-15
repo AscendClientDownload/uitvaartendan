@@ -344,9 +344,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 /* ---------- Hero ---------- */
-/* Sfeerfoto als vervaagde achtergrond: witte waas + blur, zodat de
-   tekst er overheen goed leesbaar blijft (zelfde effect als Annabelle's
-   fotobewerking — witte achtergrond + foto op ~45% dekking, vervaagd). */
+/* Sfeerfoto als vervaagde achtergrond: lichte witte waas + blur, zodat
+   de foto duidelijk zichtbaar blijft maar de tekst er goed leesbaar
+   overheen staat. */
 .hero {
   position: relative;
   overflow: hidden;
@@ -360,8 +360,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   background-image: url("/images/hero-achtergrond.jpg");
   background-size: cover;
   background-position: center 65%;
-  filter: blur(10px);
-  opacity: 0.45;
+  filter: blur(6px);
+  opacity: 0.85;
 }
 
 .hero-bg::after {
@@ -369,7 +369,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   position: absolute;
   inset: 0;
   background: var(--color-bg);
-  opacity: 0.55;
+  opacity: 0.25;
 }
 
 .hero-inner {
