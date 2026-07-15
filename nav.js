@@ -18,10 +18,11 @@ const NAV_SECTIONS = [
 ];
 
 // Juridische pagina's — losse pagina's, geen anker op index.html.
+// Cookies staat hier bewust niet bij: dat wordt afgehandeld via de
+// cookiemelding onderin het scherm, niet via een menu-item.
 const LEGAL_LINKS = [
   { href: "/algemene-voorwaarden.html", label: "Voorwaarden" },
   { href: "/privacyverklaring.html", label: "Privacy" },
-  { href: "/cookieverklaring.html", label: "Cookies" },
   { href: "/disclaimer.html", label: "Disclaimer" },
 ];
 
@@ -153,6 +154,32 @@ function initScrollSpy() {
   sections.forEach((section) => observer.observe(section));
 }
 
+// Cookiemelding onderin het scherm — verschijnt tot iemand op "Akkoord"
+// klikt, blijft daarna verborgen via localStorage.
+function buildCookieBanner() {
+  return `
+    <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookiemelding">
+      <p>Deze website gebruikt cookies om goed te werken. Meer weten? Lees de <a href="/cookieverklaring.html">cookieverklaring</a>.</p>
+      <button type="button" class="btn btn-primary" id="cookieAccept">Akkoord</button>
+    </div>
+  `;
+}
+
+function initCookieBanner() {
+  if (localStorage.getItem("cookieConsent") === "true") return;
+
+  document.body.insertAdjacentHTML("beforeend", buildCookieBanner());
+  const banner = document.getElementById("cookieBanner");
+
+  requestAnimationFrame(() => banner.classList.add("cookie-banner--visible"));
+
+  document.getElementById("cookieAccept").addEventListener("click", () => {
+    localStorage.setItem("cookieConsent", "true");
+    banner.classList.remove("cookie-banner--visible");
+    banner.addEventListener("transitionend", () => banner.remove(), { once: true });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const navPlaceholder = document.getElementById("site-nav");
   const footerPlaceholder = document.getElementById("site-footer");
@@ -162,4 +189,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initNavToggle();
   initScrollSpy();
+  initCookieBanner();
 });
