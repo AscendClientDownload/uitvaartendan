@@ -462,6 +462,42 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   margin-top: 18px;
 }
 
+/* ---------- Juridische pagina's (voorwaarden, privacy, disclaimer, cookies) ---------- */
+.prose h2 {
+  margin-top: 44px;
+  margin-bottom: 14px;
+}
+
+.prose h2:first-child {
+  margin-top: 0;
+}
+
+.prose ul,
+.prose ol {
+  margin-top: 14px;
+  padding-left: 24px;
+  list-style-position: outside;
+}
+
+.prose ul {
+  list-style-type: disc;
+}
+
+.prose ol {
+  list-style-type: decimal;
+}
+
+.prose li {
+  font-size: var(--fs-lg);
+  color: var(--color-text-light);
+  margin-bottom: 8px;
+}
+
+.prose li ul {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
 .tag-list {
   display: flex;
   flex-wrap: wrap;
@@ -638,6 +674,24 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   color: var(--color-text-light);
 }
 
+.form-banner {
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+
+.form-banner--success {
+  background: var(--color-sage-light);
+  color: var(--color-sage-darker);
+}
+
+.form-banner--error {
+  background: var(--color-lavender-light);
+  color: var(--color-text);
+}
+
 /* ---------- Footer ---------- */
 .site-footer {
   background: var(--color-bg-alt);
@@ -697,6 +751,23 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .footer-bottom p {
   font-size: var(--fs-sm);
   color: var(--color-text-light);
+}
+
+.footer-legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 20px;
+  margin-top: 12px;
+  font-size: var(--fs-sm);
+}
+
+.footer-legal-links a {
+  color: var(--color-text-light);
+}
+
+.footer-legal-links a:hover {
+  color: var(--color-sage-dark);
 }
 
 /* ---------- Responsief ---------- */

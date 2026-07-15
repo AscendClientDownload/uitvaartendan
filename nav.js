@@ -17,17 +17,26 @@ const NAV_SECTIONS = [
   { href: "#contact", label: (nav) => nav.contact },
 ];
 
+// De juridische pagina's (voorwaarden, privacy, disclaimer, cookies) staan
+// los van index.html. Op die pagina's moet een menu-anker eerst terug naar
+// de homepage linken voordat het naar de sectie springt.
+function isHomePage() {
+  const path = window.location.pathname;
+  return path === "/" || path === "" || path.endsWith("/index.html");
+}
+
 function buildNav() {
   const nav = SITE_CONTENT.navigatie;
   const bedrijf = SITE_CONTENT.bedrijf;
+  const prefix = isHomePage() ? "" : "/";
 
   const linkHtml = NAV_SECTIONS.map(
-    (link) => `<li><a href="${link.href}" class="nav-link" data-section="${link.href}">${link.label(nav)}</a></li>`
+    (link) => `<li><a href="${prefix}${link.href}" class="nav-link" data-section="${link.href}">${link.label(nav)}</a></li>`
   ).join("");
 
   return `
     <div class="nav-inner">
-      <a href="#home" class="nav-logo">
+      <a href="${prefix}#home" class="nav-logo">
         <img src="/images/logo-icon.png" alt="" class="nav-logo-icon" width="40" height="40">
         <span>${bedrijf.naam}</span>
       </a>
@@ -38,7 +47,7 @@ function buildNav() {
         <ul class="nav-list">
           ${linkHtml}
         </ul>
-        <a href="#contact" class="btn btn-primary nav-cta">${nav.cta_knop}</a>
+        <a href="${prefix}#contact" class="btn btn-primary nav-cta">${nav.cta_knop}</a>
       </nav>
     </div>
   `;
@@ -68,6 +77,12 @@ function buildFooter() {
     </div>
     <div class="footer-bottom">
       <p>&copy; ${year} ${bedrijf.naam} — ${footer.copyright}</p>
+      <ul class="footer-legal-links">
+        <li><a href="/algemene-voorwaarden.html">Algemene voorwaarden</a></li>
+        <li><a href="/privacyverklaring.html">Privacyverklaring</a></li>
+        <li><a href="/cookieverklaring.html">Cookieverklaring</a></li>
+        <li><a href="/disclaimer.html">Disclaimer</a></li>
+      </ul>
     </div>
   `;
 }
