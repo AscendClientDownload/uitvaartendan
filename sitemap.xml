@@ -6,22 +6,22 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.uitvaartendan.nl/algemene-voorwaarden.html</loc>
+    <loc>https://www.uitvaartendan.nl/algemene-voorwaarden</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.uitvaartendan.nl/privacyverklaring.html</loc>
+    <loc>https://www.uitvaartendan.nl/privacyverklaring</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.uitvaartendan.nl/cookieverklaring.html</loc>
+    <loc>https://www.uitvaartendan.nl/cookieverklaring</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.uitvaartendan.nl/disclaimer.html</loc>
+    <loc>https://www.uitvaartendan.nl/disclaimer</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

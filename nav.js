@@ -21,9 +21,9 @@ const NAV_SECTIONS = [
 // Cookies staat hier bewust niet bij: dat wordt afgehandeld via de
 // cookiemelding onderin het scherm, niet via een menu-item.
 const LEGAL_LINKS = [
-  { href: "/algemene-voorwaarden.html", label: "Voorwaarden" },
-  { href: "/privacyverklaring.html", label: "Privacy" },
-  { href: "/disclaimer.html", label: "Disclaimer" },
+  { href: "/algemene-voorwaarden", label: "Voorwaarden" },
+  { href: "/privacyverklaring", label: "Privacy" },
+  { href: "/disclaimer", label: "Disclaimer" },
 ];
 
 // De juridische pagina's (voorwaarden, privacy, disclaimer, cookies) staan
@@ -92,10 +92,10 @@ function buildFooter() {
     <div class="footer-bottom">
       <p>&copy; ${year} ${bedrijf.naam} — ${footer.copyright}</p>
       <ul class="footer-legal-links">
-        <li><a href="/algemene-voorwaarden.html">Algemene voorwaarden</a></li>
-        <li><a href="/privacyverklaring.html">Privacyverklaring</a></li>
-        <li><a href="/cookieverklaring.html">Cookieverklaring</a></li>
-        <li><a href="/disclaimer.html">Disclaimer</a></li>
+        <li><a href="/algemene-voorwaarden">Algemene voorwaarden</a></li>
+        <li><a href="/privacyverklaring">Privacyverklaring</a></li>
+        <li><a href="/cookieverklaring">Cookieverklaring</a></li>
+        <li><a href="/disclaimer">Disclaimer</a></li>
       </ul>
     </div>
   `;
@@ -159,7 +159,7 @@ function initScrollSpy() {
 function buildCookieBanner() {
   return `
     <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookiemelding">
-      <p>Deze website gebruikt cookies om goed te werken. Meer weten? Lees de <a href="/cookieverklaring.html">cookieverklaring</a>.</p>
+      <p>Deze website gebruikt cookies om goed te werken. Meer weten? Lees de <a href="/cookieverklaring">cookieverklaring</a>.</p>
       <button type="button" class="btn btn-primary" id="cookieAccept">Akkoord</button>
     </div>
   `;
