@@ -384,11 +384,20 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   max-width: 640px;
 }
 
+/* Zachte lichte gloed achter de tekst, zodat de titel en ondertitel
+   leesbaar blijven boven de foto — ook op de drukkere/donkerdere
+   plekken (bijv. de boomstam) — zonder de foto zelf af te dekken. */
+.hero-text h1 {
+  text-shadow: 0 0 24px var(--color-bg), 0 0 12px var(--color-bg);
+}
+
 .hero-text p {
   margin-top: 20px;
   max-width: 46ch;
   margin-left: auto;
   margin-right: auto;
+  color: var(--color-text);
+  text-shadow: 0 0 20px var(--color-bg), 0 0 10px var(--color-bg);
 }
 
 .hero-actions {
