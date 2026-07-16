@@ -59,7 +59,7 @@ const SITE_CONTENT = {
     "titel": "Diensten",
     "cta_tekst": "Neem contact op voor een vrijblijvend gesprek.",
     "op_maat_titel": "Altijd op maat",
-    "intro": "Ik werk met duidelijke pakketten als basis, maar elke situatie is anders. In een kennismakingsgesprek bekijken we samen wat het beste bij jouw situatie past.",
+    "intro": "Ik werk met duidelijke pakketten als basis, maar elke situatie is anders. Tijdens het intakegesprek brengen we samen in kaart wat er nodig is en wat het beste bij jouw situatie past.",
     "doelgroepen_titel": "Ook voor professionals",
     "pakket_1": {
       "naam": "Basispakket",
