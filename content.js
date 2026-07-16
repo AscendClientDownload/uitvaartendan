@@ -25,11 +25,11 @@ const SITE_CONTENT = {
     "cta_knop": "Neem contact op"
   },
   "home": {
-    "hero_titel": "Je bent niet alleen.\nIk loop met je mee.",
+    "hero_titel": "Je bent niet alleen,\nik loop met je mee.",
     "intro_tekst": "Welkom bij Uitvaart en dan? Ontstaan vanuit liefde voor de mens en het ontzorgen in een kwetsbare periode. Na een overlijden is er veel te bieden op het gebied van emotionele ondersteuning — echter de praktische en vooral ook persoonlijke begeleiding ontbreekt als schakel na een uitvaart. Je bent niet alleen, ik loop met je mee.",
     "hero_knop": "Neem contact op",
     "diensten_knop": "Bekijk de diensten",
-    "cta_tekst": "Neem gerust contact op voor een vrijblijvend gesprek. Samen kijken we wat jij nodig hebt.",
+    "cta_tekst": "Neem dan contact op voor het plannen van een intakegesprek zodat we samen kunnen kijken wat er in jouw situatie nodig is.",
     "voor_wie_tekst": "Naast particulieren werk ik ook samen met uitvaartorganisaties, notarissen, mantelzorgorganisaties, hospices, verpleegtehuizen en WMO-loketten die hun cliënten graag goed doorverwijzen.",
     "over_knop": "Lees meer over mij",
     "over_tekst": "Ik ben Annabelle Zaal, 48 jaar, woonachtig in Houten. Vanuit mijn eigen ervaringen weet ik hoeveel er op nabestaanden afkomt nadat een uitvaart voorbij is — en hoe fijn het is om daarin niet alleen te staan.",
@@ -43,14 +43,13 @@ const SITE_CONTENT = {
     "diensten_titel": "Hoe ik je kan helpen"
   },
   "over_ons": {
-    "citaat": "Je bent niet alleen. Ik loop met je mee.",
     "titel": "Over mij",
     "intro": "Ik ben Annabelle Zaal, 48 jaar, en samen met mijn man en drie kinderen woon ik in Houten.",
     "paragraaf_1": "Vanuit mijn eigen ervaringen weet ik hoeveel er op nabestaanden afkomt nadat een uitvaart voorbij is. Naast verdriet en machteloosheid moeten er ook behoorlijk wat praktische zaken worden geregeld. Juist in die periode, waarin je eigenlijk alleen maar rust nodig hebt, wordt er veel van je gevraagd.",
-    "paragraaf_2": "[INVULLEN — Annabelle vult hier haar persoonlijke verhaal verder aan]",
-    "paragraaf_3": "[INVULLEN]",
+    "paragraaf_2": "",
+    "paragraaf_3": "",
     "cta_knop": "Neem contact op",
-    "missie_tekst": "Het persoonlijke contact, de praktische organisatie en de mogelijkheid om alles aan te passen per situatie — dat is wat Uitvaart en dan? anders maakt. Ik loop met je mee, stap voor stap, in het tempo dat bij jou past.",
+    "missie_tekst": "Het persoonlijke contact, de praktische organisatie en de mogelijkheid om alles aan te passen per situatie — dat is wat Uitvaart en dan? anders maakt. Ik help je, stap voor stap, in het tempo dat bij jou past.",
     "cta_titel": "Nieuwsgierig wat ik voor jou kan betekenen?",
     "missie_titel": "Waarom ik dit doe"
   },
@@ -73,11 +72,14 @@ const SITE_CONTENT = {
       ]
     },
     "pakket_2": {
-      "naam": "[INVULLEN]",
-      "prijs": "[INVULLEN]",
-      "beschrijving": "[INVULLEN — Annabelle vult hier de inhoud van het tweede pakket aan]",
+      "naam": "Uitgebreid pakket",
+      "prijs": "€ 795,-",
+      "beschrijving": "Van overzicht naar uitvoering: niet alleen een plan, maar ook praktische hulp om echt stappen te zetten. Ook geschikt om in te zetten voor ondersteunende diensten als het opruimen, sorteren en afvoeren van spullen.",
       "items": [
-        "[INVULLEN]"
+        "2 extra afspraken van 2,5 uur",
+        "Samen opruimen en organiseren",
+        "Ondersteuning bij administratie",
+        "Totaal 10,5 uur"
       ]
     },
     "cta_knop": "Neem contact op",

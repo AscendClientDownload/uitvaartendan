@@ -68,7 +68,6 @@ collections:
               - { label: "Paragraaf 3", name: "paragraaf_3", widget: "text" }
               - { label: "Titel missie", name: "missie_titel", widget: "string" }
               - { label: "Tekst missie", name: "missie_tekst", widget: "text" }
-              - { label: "Citaat", name: "citaat", widget: "string" }
               - { label: "Titel afsluitende oproep", name: "cta_titel", widget: "string" }
               - { label: "Knoptekst afsluitende oproep", name: "cta_knop", widget: "string" }
 
