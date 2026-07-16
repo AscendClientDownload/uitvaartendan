@@ -84,6 +84,7 @@ diensten:
       - Intakegesprek (1 uur)
       - Twee begeleidingsgesprekken van 2 uur
       - Het opstellen van een persoonlijke actielijst
+      - Evaluatiegesprek (persoonlijk of telefonisch, half uur)
   pakket_2:
     naam: Uitgebreid pakket
     prijs: € 795,-
@@ -92,10 +93,14 @@ diensten:
       voor ondersteunende diensten als het opruimen, sorteren en afvoeren van
       spullen."
     items:
+      - Intakegesprek (1 uur)
+      - Twee begeleidingsgesprekken van 2 uur
+      - Het opstellen van een persoonlijke actielijst
       - 2 extra afspraken van 2,5 uur
       - Samen opruimen en organiseren
       - Ondersteuning bij administratie
       - Totaal 10,5 uur
+      - Evaluatiegesprek (persoonlijk of telefonisch, half uur)
   cta_knop: Neem contact op
   cta_titel: Benieuwd wat bij jou past?
 contact:

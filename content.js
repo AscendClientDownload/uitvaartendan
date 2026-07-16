@@ -68,7 +68,8 @@ const SITE_CONTENT = {
       "items": [
         "Intakegesprek (1 uur)",
         "Twee begeleidingsgesprekken van 2 uur",
-        "Het opstellen van een persoonlijke actielijst"
+        "Het opstellen van een persoonlijke actielijst",
+        "Evaluatiegesprek (persoonlijk of telefonisch, half uur)"
       ]
     },
     "pakket_2": {
@@ -76,10 +77,14 @@ const SITE_CONTENT = {
       "prijs": "€ 795,-",
       "beschrijving": "Van overzicht naar uitvoering: niet alleen een plan, maar ook praktische hulp om echt stappen te zetten. Ook geschikt om in te zetten voor ondersteunende diensten als het opruimen, sorteren en afvoeren van spullen.",
       "items": [
+        "Intakegesprek (1 uur)",
+        "Twee begeleidingsgesprekken van 2 uur",
+        "Het opstellen van een persoonlijke actielijst",
         "2 extra afspraken van 2,5 uur",
         "Samen opruimen en organiseren",
         "Ondersteuning bij administratie",
-        "Totaal 10,5 uur"
+        "Totaal 10,5 uur",
+        "Evaluatiegesprek (persoonlijk of telefonisch, half uur)"
       ]
     },
     "cta_knop": "Neem contact op",
