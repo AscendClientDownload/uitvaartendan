@@ -1,7 +1,243 @@
 ---
-title: "Test"
-description: "Test"
+title: "Uitvaart en dan? | Praktische begeleiding voor nabestaanden in Houten"
+description: "Na een uitvaart begint het pas. Annabelle Zaal helpt nabestaanden stap voor stap met de praktische zaken die na een overlijden geregeld moeten worden."
+ogTitle: "Uitvaart en dan? | Praktische begeleiding voor nabestaanden"
+ogDescription: "Persoonlijke en praktische ondersteuning voor nabestaanden in de periode na een uitvaart."
+canonical: "/"
 isHome: true
 layout: base.njk
 ---
-<h1>{{ site.home.hero_titel }}</h1>
+<section class="hero" id="home">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <h1>{{ site.home.hero_titel }}</h1>
+      <p>{{ site.home.hero_ondertitel }}</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">{{ site.home.hero_knop }}</a>
+        <a href="#diensten" class="btn btn-secondary">{{ site.navigatie.diensten }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Welkom</span>
+      <h2>{{ site.home.intro_titel }}</h2>
+      <p>{{ site.home.intro_tekst }}</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon" aria-hidden="true"></div>
+        <h3>Overzicht</h3>
+        <p>Samen breng ik in kaart wat er allemaal geregeld moet worden, zodat jij ruimte hebt om te kunnen rouwen en je gesteund voelt.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" aria-hidden="true" style="background: var(--color-gold-light);"></div>
+        <h3>Persoonlijk contact</h3>
+        <p>Geen protocol, maar een luisterend oor en begeleiding die past bij jouw tempo en situatie.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" aria-hidden="true" style="background: var(--color-lavender-light);"></div>
+        <h3>Praktische hulp</h3>
+        <p>Van instanties bellen tot papieren op orde brengen — ik help je met de stappen die nu nodig zijn.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="over-ons">
+  <div class="container">
+    <div class="split">
+      <div class="split-image split-image--sage" aria-hidden="true"></div>
+      <div class="split-text">
+        <h2>{{ site.over_ons.titel }}</h2>
+        <p>{{ site.over_ons.intro }}</p>
+      </div>
+    </div>
+
+    <div class="prose" style="max-width: 720px; margin: 48px auto 0;">
+      <p>{{ site.over_ons.paragraaf_1 }}</p>
+      {% if site.over_ons.paragraaf_2 %}<p>{{ site.over_ons.paragraaf_2 }}</p>{% endif %}
+      {% if site.over_ons.paragraaf_3 %}<p>{{ site.over_ons.paragraaf_3 }}</p>{% endif %}
+    </div>
+
+    <div class="section-header">
+      <span class="eyebrow">Missie</span>
+      <h2>{{ site.over_ons.missie_titel }}</h2>
+      <p>{{ site.over_ons.missie_tekst }}</p>
+    </div>
+
+    <div class="tag-list" style="justify-content: center;">
+      <span class="tag">Persoonlijk contact</span>
+      <span class="tag">Praktische organisatie</span>
+      <span class="tag">Aanpasbaar per situatie</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="diensten">
+  <div class="container">
+    <div class="section-header">
+      <h2>{{ site.diensten.titel }}</h2>
+      <p>{{ site.diensten.intro }}</p>
+    </div>
+
+    <div class="pricing-grid">
+
+      <div class="pricing-card">
+        <span class="eyebrow">{{ site.diensten.pakket_1.naam }}</span>
+        <h3 class="pricing-price">{{ site.diensten.pakket_1.prijs }}</h3>
+        <p>{{ site.diensten.pakket_1.beschrijving }}</p>
+        <ul class="pricing-list">
+          {% for item in site.diensten.pakket_1.items %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+        <a href="#contact" class="btn btn-primary btn-block">Neem contact op</a>
+      </div>
+
+      <div class="pricing-card">
+        <span class="eyebrow">{{ site.diensten.pakket_2.naam }}</span>
+        <h3 class="pricing-price">{{ site.diensten.pakket_2.prijs }}</h3>
+        <p>{{ site.diensten.pakket_2.beschrijving }}</p>
+        <ul class="pricing-list">
+          {% for item in site.diensten.pakket_2.items %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+        <a href="#contact" class="btn btn-secondary btn-block">Neem contact op</a>
+      </div>
+
+    </div>
+
+    <div class="note-box">
+      <h3>{{ site.diensten.op_maat_titel }}</h3>
+      <p style="margin-top: 10px;">{{ site.diensten.op_maat_tekst }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-header">
+      <h2>{{ site.diensten.doelgroepen_titel }}</h2>
+      <p>{{ site.diensten.doelgroepen_tekst }}</p>
+    </div>
+
+    <div class="tag-list" style="justify-content: center;">
+      <span class="tag">Uitvaartorganisaties</span>
+      <span class="tag">Notarissen</span>
+      <span class="tag">Mantelzorgorganisaties</span>
+      <span class="tag">Hospices</span>
+      <span class="tag">Verpleegtehuizen</span>
+      <span class="tag">WMO-loketten</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-band">
+      <h2>{{ site.home.cta_titel }}</h2>
+      <p>{{ site.home.cta_tekst }}</p>
+      <a href="#contact" class="btn btn-primary">{{ site.home.cta_knop }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="contact">
+  <div class="container">
+    <div class="section-header" style="margin-bottom: 48px;">
+      <h2>{{ site.contact.titel }}</h2>
+      <p>{{ site.contact.intro }}</p>
+    </div>
+
+    <div class="contact-grid">
+
+      <div>
+        <h3 style="margin-bottom: 28px;">{{ site.contact.gegevens_titel }}</h3>
+
+        <div class="contact-info-item">
+          <div class="contact-info-icon" aria-hidden="true"></div>
+          <div>
+            <h3>Telefoon</h3>
+            <a href="tel:{{ site.bedrijf.telefoon_href }}">{{ site.bedrijf.telefoon }}</a>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-info-icon" aria-hidden="true" style="background: var(--color-gold-light);"></div>
+          <div>
+            <h3>E-mail</h3>
+            <a href="mailto:{{ site.bedrijf.email }}">{{ site.bedrijf.email }}</a>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-info-icon" aria-hidden="true" style="background: var(--color-lavender-light);"></div>
+          <div>
+            <h3>Adres</h3>
+            <p><span>{{ site.bedrijf.straat }}</span><br><span>{{ site.bedrijf.postcode_plaats }}</span></p>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <div class="contact-info-icon" aria-hidden="true"></div>
+          <div>
+            <h3>Openingstijden</h3>
+            <p>{{ site.bedrijf.openingstijden }}</p>
+          </div>
+        </div>
+
+        <h3 style="margin-top: 40px;">{{ site.contact.kaart_titel }}</h3>
+        <div class="map-embed">
+          <iframe
+            src="https://www.google.com/maps?q=Riddersborch+5,+3992+BG+Houten&z=10&output=embed"
+            title="Kaart met het werkgebied van Uitvaart en dan?, rondom Houten"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <h3 style="margin-bottom: 24px;">{{ site.contact.formulier_titel }}</h3>
+
+        <form action="https://formspree.io/f/xdaqakjb" method="POST">
+
+          <input type="hidden" name="_subject" value="Nieuw bericht via website Uitvaart en dan?">
+
+          <input type="text" name="_gotcha" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="form-group">
+            <label for="naam">{{ site.contact.label_naam }}</label>
+            <input type="text" id="naam" name="naam" required autocomplete="name">
+          </div>
+
+          <div class="form-group">
+            <label for="email">{{ site.contact.label_email }}</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+
+          <div class="form-group">
+            <label for="telefoon">{{ site.contact.label_telefoon }}</label>
+            <input type="tel" id="telefoon" name="telefoon" autocomplete="tel">
+          </div>
+
+          <div class="form-group">
+            <label for="bericht">{{ site.contact.label_bericht }}</label>
+            <textarea id="bericht" name="bericht" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">{{ site.contact.knop_verzenden }}</button>
+          <p class="form-note">Je bericht komt rechtstreeks in de mailbox van Annabelle terecht. Ze reageert zo snel mogelijk.</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
