@@ -17,29 +17,24 @@ via Micha (zie onderaan).
 ## 1. Inloggen en teksten aanpassen
 
 1. Ga naar **`https://www.uitvaartendan.nl/admin`**.
-2. Klik op **"Login with Netlify Identity"**.
-3. Log in met het e-mailadres en wachtwoord waarmee Micha je heeft
+2. Log in met het e-mailadres en wachtwoord van je eigen **Tina
+   Cloud**-account — dat is het account waarmee Micha je heeft
    uitgenodigd. (De allereerste keer krijg je een uitnodigingsmail
    waarin je zelf een wachtwoord instelt — zie "De eerste keer"
    hieronder.)
-4. Je ziet nu een lijst met onderdelen: **Bedrijfsgegevens, Menu,
+3. Je ziet nu een lijst met onderdelen: **Bedrijfsgegevens, Menu,
    Home, Over mij, Diensten, Contact, Footer.** Klik op het onderdeel
    dat je wilt aanpassen.
-5. Je ziet een formulier met invulvelden — één veld per tekst op de
+4. Je ziet een formulier met invulvelden — één veld per tekst op de
    website, met duidelijke labels (bijvoorbeeld "Hoofdtitel (hero)").
    Pas de tekst aan in het veld.
-6. Klik rechtsboven op **"Publish"** (of "Save" en daarna "Publish")
-   om je wijziging op te slaan.
+5. Klik rechtsboven op **"Save"** (en daarna eventueel "Publish", als
+   dat apart wordt gevraagd) om je wijziging op te slaan.
 
-**Let op: de wijziging is niet meteen zichtbaar.** Na op "Publish"
-te klikken, bouwt de website zichzelf opnieuw op — dat duurt meestal
-**30 tot 90 seconden**. Ververs de website na een minuutje en je ziet
-je nieuwe tekst staan.
-
-Kom je een tekst tegen die begint met **"[INVULLEN]"**? Dat is een
-plek die nog op jouw tekst wacht (bijvoorbeeld het tweede
-dienstenpakket of een stuk van je persoonlijke verhaal). Vul het veld
-gewoon in zoals elk ander tekstveld.
+**Let op: de wijziging is niet meteen zichtbaar.** Na het opslaan
+bouwt de website zichzelf opnieuw op — dat duurt meestal **30 tot 90
+seconden**. Ververs de website na een minuutje en je ziet je nieuwe
+tekst staan.
 
 **De onderdelen "Diensten" → "Pakket 1" en "Pakket 2"** hebben een
 lijstje "Onderdelen van dit pakket". Met de knoppen daaronder kun je
@@ -51,17 +46,16 @@ extra dienst krijgt).
 
 ### De eerste keer
 
-Micha nodigt je uit via e-mail (Netlify stuurt deze automatisch). In
-die e-mail:
+Micha nodigt je uit voor het Tina Cloud-project van de website. Je
+krijgt daarvoor een uitnodigingsmail van Tina Cloud. In die e-mail:
 1. Klik op de link.
-2. Je komt op de website terecht en wordt automatisch doorgestuurd
-   naar het beheerscherm.
-3. Stel daar je eigen wachtwoord in.
-4. Vanaf nu log je in met je e-mailadres en dat wachtwoord.
+2. Stel daar je eigen wachtwoord in voor je Tina Cloud-account.
+3. Vanaf nu log je op `/admin` in met je e-mailadres en dat
+   wachtwoord.
 
-**Wachtwoord vergeten?** Ga naar `/admin`, klik op "Login with
-Netlify Identity" en dan op "Forgot password?" — je krijgt een
-e-mail om een nieuw wachtwoord in te stellen.
+**Wachtwoord vergeten?** Ga naar `/admin` en gebruik de
+"wachtwoord vergeten"-link op het inlogscherm — je krijgt een e-mail
+van Tina Cloud om een nieuw wachtwoord in te stellen.
 
 ---
 
@@ -74,19 +68,21 @@ bedoeld zodat je begrijpt wat er gebeurt:
 
 - **Kleuren** staan in `style.css`, bovenaan bij `:root {`, als
   hexcodes (bijvoorbeeld `#8FA593`).
-- **Foto's** vervangen de gekleurde placeholder-vlakken, herkenbaar
-  aan `<!-- VERVANG MET FOTO: ... -->` in `index.html`.
+- **Foto's** staan als bestanden in de map `images/` (bijvoorbeeld
+  `hero-achtergrond.jpg` en `logo-icon.png`) en worden vanuit
+  `src/index.njk` en `style.css` ingeladen. Een foto vervangen
+  betekent: het bestand in `images/` vervangen door een nieuwe foto
+  met dezelfde bestandsnaam (of de verwijzing ernaar aanpassen).
 
 Micha past het aan, "commit" en "pusht" het naar GitHub, en de
 website bouwt zichzelf automatisch opnieuw op (net als bij een
 tekstwijziging — 30 tot 90 seconden).
 
 Het **contactformulier** hoeft niemand meer aan te sluiten — dat
-werkt via Netlify Forms (ingebouwd in de hosting) en stuurt berichten
-automatisch naar `info@uitvaartendan.nl`. Wil je dat naar een ander
-e-mailadres laten sturen? Dat regelt Micha via het Netlify-dashboard
-(Project configuration → Forms), geen wijziging in de website zelf
-nodig.
+werkt via **Formspree** en stuurt berichten automatisch naar
+`info@uitvaartendan.nl`. Wil je dat naar een ander e-mailadres laten
+sturen? Dat regelt Micha via het Formspree-dashboard, geen wijziging
+in de website zelf nodig.
 
 ---
 
@@ -96,14 +92,15 @@ Handig om te weten, niet iets waar je iets voor hoeft te doen:
 
 - Je website staat in een **GitHub-repository** (een soort online
   projectmap met geschiedenis van alle wijzigingen) en wordt
-  gehost via **Netlify**.
-- Het beheerscherm op `/admin` heet **Decap CMS**. Als je daar
-  opslaat, wordt er automatisch een wijziging weggeschreven naar
-  die GitHub-repository.
-- Netlify ziet die wijziging, bouwt de website automatisch opnieuw
-  op, en zet hem live. Dat is de reden voor de wachttijd van
-  30-90 seconden na het opslaan.
-- Inloggen op `/admin` gaat via **Netlify Identity** — dat regelt
+  gehost via **GitHub Pages**.
+- Het beheerscherm op `/admin` heet **TinaCMS**, en werkt via
+  **Tina Cloud**. Als je daar opslaat, wordt er automatisch een
+  wijziging weggeschreven naar die GitHub-repository.
+- Die wijziging in GitHub start automatisch een nieuwe build van de
+  website (via GitHub Actions), die de site opnieuw opbouwt en live
+  zet. Dat is de reden voor de wachttijd van 30-90 seconden na het
+  opslaan.
+- Inloggen op `/admin` gaat via je **Tina Cloud**-account — dat regelt
   wie er mag inloggen, los van de website zelf.
 
 ---
