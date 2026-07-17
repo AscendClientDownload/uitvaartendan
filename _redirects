@@ -1,8 +1,0 @@
-# Stuur de oude .html-links door naar de schone URL's (zonder .html).
-# De "!" dwingt de redirect af, want het bestand zelf bestaat nog steeds
-# op die plek — zonder "!" negeert Netlify de regel en serveert het
-# bestand direct.
-/algemene-voorwaarden.html   /algemene-voorwaarden   301!
-/privacyverklaring.html      /privacyverklaring      301!
-/cookieverklaring.html       /cookieverklaring       301!
-/disclaimer.html             /disclaimer             301!
