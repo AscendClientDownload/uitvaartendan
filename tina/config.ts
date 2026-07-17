@@ -73,6 +73,19 @@ export default defineConfig({
               { type: "string", name: "cta_titel", label: "Titel afsluitende oproep" },
               { type: "string", name: "cta_tekst", label: "Tekst afsluitende oproep", ui: { component: "textarea" } },
               { type: "string", name: "cta_knop", label: "Knoptekst afsluitende oproep" },
+              {
+                type: "object",
+                name: "kaarten",
+                label: "Kaartjes onder \"Welkom\"-sectie",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({ label: item?.titel }),
+                },
+                fields: [
+                  { type: "string", name: "titel", label: "Titel" },
+                  { type: "string", name: "tekst", label: "Tekst", ui: { component: "textarea" } },
+                ],
+              },
             ],
           },
           {
@@ -89,6 +102,7 @@ export default defineConfig({
               { type: "string", name: "missie_tekst", label: "Tekst missie", ui: { component: "textarea" } },
               { type: "string", name: "cta_titel", label: "Titel afsluitende oproep" },
               { type: "string", name: "cta_knop", label: "Knoptekst afsluitende oproep" },
+              { type: "string", name: "tags", label: "Tags onder de missie", list: true },
             ],
           },
           {
@@ -124,6 +138,7 @@ export default defineConfig({
               { type: "string", name: "op_maat_tekst", label: "Tekst \"Altijd op maat\"", ui: { component: "textarea" } },
               { type: "string", name: "doelgroepen_titel", label: "Titel \"Ook voor professionals\"" },
               { type: "string", name: "doelgroepen_tekst", label: "Tekst \"Ook voor professionals\"", ui: { component: "textarea" } },
+              { type: "string", name: "doelgroep_tags", label: "Tags \"Ook voor professionals\"", list: true },
               { type: "string", name: "cta_titel", label: "Titel afsluitende oproep" },
               { type: "string", name: "cta_tekst", label: "Tekst afsluitende oproep", ui: { component: "textarea" } },
               { type: "string", name: "cta_knop", label: "Knoptekst afsluitende oproep" },

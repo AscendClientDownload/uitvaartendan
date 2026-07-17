@@ -30,21 +30,14 @@ layout: base.njk
     </div>
 
     <div class="card-grid">
+      {% set cardBackgrounds = [null, "var(--color-gold-light)", "var(--color-lavender-light)"] %}
+      {% for kaart in site.home.kaarten %}
       <div class="card">
-        <div class="card-icon" aria-hidden="true"></div>
-        <h3>Overzicht</h3>
-        <p>Samen breng ik in kaart wat er allemaal geregeld moet worden, zodat jij ruimte hebt om te kunnen rouwen en je gesteund voelt.</p>
+        <div class="card-icon" aria-hidden="true"{% if cardBackgrounds[loop.index0] %} style="background: {{ cardBackgrounds[loop.index0] }};"{% endif %}></div>
+        <h3>{{ kaart.titel }}</h3>
+        <p>{{ kaart.tekst }}</p>
       </div>
-      <div class="card">
-        <div class="card-icon" aria-hidden="true" style="background: var(--color-gold-light);"></div>
-        <h3>Persoonlijk contact</h3>
-        <p>Geen protocol, maar een luisterend oor en begeleiding die past bij jouw tempo en situatie.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon" aria-hidden="true" style="background: var(--color-lavender-light);"></div>
-        <h3>Praktische hulp</h3>
-        <p>Van instanties bellen tot papieren op orde brengen — ik help je met de stappen die nu nodig zijn.</p>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -72,9 +65,9 @@ layout: base.njk
     </div>
 
     <div class="tag-list" style="justify-content: center;">
-      <span class="tag">Persoonlijk contact</span>
-      <span class="tag">Praktische organisatie</span>
-      <span class="tag">Aanpasbaar per situatie</span>
+      {% for tag in site.over_ons.tags %}
+      <span class="tag">{{ tag }}</span>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -129,12 +122,9 @@ layout: base.njk
     </div>
 
     <div class="tag-list" style="justify-content: center;">
-      <span class="tag">Uitvaartorganisaties</span>
-      <span class="tag">Notarissen</span>
-      <span class="tag">Mantelzorgorganisaties</span>
-      <span class="tag">Hospices</span>
-      <span class="tag">Verpleegtehuizen</span>
-      <span class="tag">WMO-loketten</span>
+      {% for tag in site.diensten.doelgroep_tags %}
+      <span class="tag">{{ tag }}</span>
+      {% endfor %}
     </div>
   </div>
 </section>

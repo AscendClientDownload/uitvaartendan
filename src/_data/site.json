@@ -32,7 +32,21 @@
     "voor_wie_tekst": "Naast particulieren werk ik ook samen met uitvaartorganisaties, notarissen, mantelzorgorganisaties, hospices, verpleegtehuizen en WMO-loketten die hun cliënten graag goed doorverwijzen.",
     "cta_titel": "Zullen we kennismaken?",
     "cta_tekst": "Neem dan contact op voor het plannen van een intakegesprek zodat we samen kunnen kijken wat er in jouw situatie nodig is.",
-    "cta_knop": "Neem contact op"
+    "cta_knop": "Neem contact op",
+    "kaarten": [
+      {
+        "titel": "Overzicht",
+        "tekst": "Samen breng ik in kaart wat er allemaal geregeld moet worden, zodat jij ruimte hebt om te kunnen rouwen en je gesteund voelt."
+      },
+      {
+        "titel": "Persoonlijk contact",
+        "tekst": "Geen protocol, maar een luisterend oor en begeleiding die past bij jouw tempo en situatie."
+      },
+      {
+        "titel": "Praktische hulp",
+        "tekst": "Van instanties bellen tot papieren op orde brengen — ik help je met de stappen die nu nodig zijn."
+      }
+    ]
   },
   "over_ons": {
     "titel": "Over mij",
@@ -43,7 +57,8 @@
     "missie_titel": "Waarom ik dit doe",
     "missie_tekst": "Het persoonlijke contact, de praktische organisatie en de mogelijkheid om alles aan te passen per situatie — dat is wat Uitvaart en dan? anders maakt. Ik help je, stap voor stap, in het tempo dat bij jou past.",
     "cta_titel": "Nieuwsgierig wat ik voor jou kan betekenen?",
-    "cta_knop": "Neem contact op"
+    "cta_knop": "Neem contact op",
+    "tags": ["Persoonlijk contact", "Praktische organisatie", "Aanpasbaar per situatie"]
   },
   "diensten": {
     "titel": "Diensten",
@@ -78,6 +93,7 @@
     "op_maat_tekst": "Geen enkele situatie is hetzelfde. Naast de vaste pakketten is er altijd ruimte om onderdelen toe te voegen of aan te passen, zodat de begeleiding precies aansluit bij wat jij nodig hebt.",
     "doelgroepen_titel": "Ook voor professionals",
     "doelgroepen_tekst": "Bent u werkzaam bij een uitvaartorganisatie, notariskantoor, mantelzorgorganisatie, hospice, verpleeghuis of WMO-loket? Ik denk graag mee over hoe ik als vaste partner nabestaanden praktisch kan ondersteunen na een overlijden.",
+    "doelgroep_tags": ["Uitvaartorganisaties", "Notarissen", "Mantelzorgorganisaties", "Hospices", "Verpleegtehuizen", "WMO-loketten"],
     "cta_titel": "Benieuwd wat bij jou past?",
     "cta_tekst": "Neem contact op voor een vrijblijvend gesprek.",
     "cta_knop": "Neem contact op"
