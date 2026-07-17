@@ -1,7 +1,8 @@
-# Migrate site to Astro + TinaCMS (Tina Cloud) — design
+# Migrate site to Eleventy + TinaCMS (Tina Cloud) — design
 
 Date: 2026-07-17
-Status: approved by user, not yet implemented
+Status: approved by user (revised after a mid-plan blocker — see Revision
+history at the bottom), not yet implemented
 
 ## Why
 
@@ -31,51 +32,51 @@ GitHub entirely. Tina Cloud handles the GitHub connection on the backend
 via its own GitHub App, installed once against the repo owner's account —
 not a personal access token embedded in the CMS itself.
 
-## What was explicitly chosen, and why it costs more than the previous setup
+## Non-goal: visual live editing
 
-TinaCMS offers two editing experiences:
-1. A plain form-based admin screen (low setup cost, equivalent to what
-   Decap/Sveltia already provided).
-2. "Visual" live editing — Annabelle edits text directly on a live preview
-   of the real page, seeing the site update as she types.
-
-The user explicitly chose (2), the visual editor, despite it requiring an
-editing bridge (`@tinacms/astro`) wired into every page template — a real
-rewrite, not a config swap. This was surfaced and confirmed before
-committing to the larger scope.
-
-TinaCMS's visual editing requires a JS framework (no plain-HTML path
-exists for it). Astro was chosen as that framework because it's the
-framework TinaCMS's own docs treat as first-class for non-React visual
-editing (`@tinacms/astro` renders static HTML by default, with editing
-capability layered on top only inside the Tina iframe — the public site
-stays static, no React shipped to visitors).
+An earlier version of this spec chose TinaCMS's "visual" live-editing mode
+(edit text directly on a rendered preview of the real page). That turned
+out to require Astro's `output: 'server'` mode plus a server adapter
+(Node/Vercel/Netlify/Cloudflare) — visual editing works through an
+on-demand server endpoint that has to run at request time, which **GitHub
+Pages cannot do at all** (pure static file hosting, no server execution).
+Since keeping the site on GitHub Pages is a hard requirement, visual
+editing is out of scope. Annabelle gets Tina's plain form-based admin
+screen instead — functionally the same experience Decap/Sveltia already
+gave her (a list of text fields, edit, save), just with Tina Cloud's
+separate-identity login instead of a GitHub-tied one.
 
 ## Architecture
 
-- **Homepage** (`index.html` → `src/pages/index.astro`): rebuilt as Astro
-  components, one per section (Hero, Welkom, OverMij, Diensten, Contact,
-  etc.), each field wrapped with `tinaField()` markers so Tina's visual
-  overlay can target it.
+- **Framework**: the site moves from hand-written HTML + a
+  `content.yml`→`content.js` build script to **Eleventy (11ty)**, a static
+  site generator with zero server runtime — it only ever produces plain
+  HTML files, which is exactly why it's compatible with both GitHub Pages
+  and Tina's non-visual admin (frameworks incapable of SSR, like 11ty,
+  Hugo, and Jekyll, are the ones Tina supports without requiring a server
+  adapter).
+- **Homepage** (`index.html` → `src/index.njk` or similar 11ty template):
+  same sections as today (Hero, Welkom, Over mij, Diensten, Contact),
+  rebuilt as 11ty template(s) reading from the Tina-managed content file
+  instead of `data-content` attributes populated by client-side JS.
 - **Legal pages** (`algemene-voorwaarden.html`, `privacyverklaring.html`,
-  `cookieverklaring.html`, `disclaimer.html`): converted to plain Astro
-  pages for framework consistency, but **not** wired into Tina — same
-  static text as today, matching current scope (these were never in
-  `admin/config.yml` either).
-- **Nav & footer** (`nav.js`): becomes a shared Astro layout component,
+  `cookieverklaring.html`, `disclaimer.html`): converted to 11ty templates
+  too, for one consistent build pipeline — **not** wired into Tina, same
+  static text as today (these were never in `admin/config.yml` either).
+- **Nav & footer** (`nav.js`): becomes a shared 11ty layout/include,
   rendered at build time instead of injected by client-side JS at
   runtime. Same visual output, less runtime JS shipped to visitors.
 - **Content storage**: `content/home.json` replaces `content.yml` as the
   source of truth — same shape/fields as `admin/config.yml` today (see
-  Content model below), stored as a single Tina "document" (not a folder
+  Content model below), edited as a single Tina "document" (not a folder
   of many entries — there is and only ever will be this one file).
 - **Hosting**: unchanged — GitHub Pages via the existing
   `.github/workflows/pages.yml`. Only the build command changes (see
   Deployment pipeline below). Domain, DNS, and SSL are untouched.
 - **Editing flow**: Annabelle logs into Tina Cloud with her own
-  email+password → opens the site's `/admin` → sees the real homepage
-  rendered live → clicks text, edits in place → saves → Tina Cloud commits
-  to `main` → GitHub Actions rebuilds → live in roughly 1-2 minutes.
+  email+password → opens the site's `/admin` → sees a form listing every
+  editable field → edits, saves → Tina Cloud commits to `main` → GitHub
+  Actions rebuilds the static site → live in roughly 1-2 minutes.
 
 ## Content model
 
@@ -88,7 +89,7 @@ added, nothing removed:
 - `home` — hero titel/ondertitel/knop, welkomsttitel/tekst,
   diensten-titel/tekst/knop, over-titel/tekst/knop, voor-wie-titel/tekst,
   cta-titel/tekst/knop
-- `over_ons` — titel, intro, paragraaf_1/2/3, missie_titel/tekst,
+- `over_ons` — titel, intro, paragrafen, missie_titel/tekst,
   cta_titel/knop
 - `diensten` — titel, intro, pakket_1 and pakket_2 (each: naam, prijs,
   beschrijving, items — a repeatable list), op_maat_titel/tekst,
@@ -98,8 +99,8 @@ added, nothing removed:
 - `footer` — tekst, copyright
 
 Field types mirror what Decap already used: `string` for short text,
-multiline `string`/`rich-text` for longer text, a repeatable list field
-for each pricing package's `items`.
+multiline `string` for longer text, a repeatable list field for each
+pricing package's `items`.
 
 **Out of scope, unchanged from every prior version of this admin panel:**
 photos, colors/theme (`style.css`), layout, and the Formspree contact-form
@@ -116,17 +117,17 @@ GitHub.
    account and is added as an editor on the project. Her saves are
    attributed to her own identity, not the repo owner's.
 3. **Client ID + read-only content token**: both safe to commit into the
-   Astro config; this is what lets the deployed static site talk to Tina
-   Cloud's content API.
+   site config; this is what lets the deployed static site (and the Tina
+   admin bundle) talk to Tina Cloud's content API.
 
 ## Deployment pipeline
 
 `.github/workflows/pages.yml` changes minimally:
 - `npm install` stays.
-- Build command changes from `node scripts/build-content.js` to
-  `npx astro build`.
-- Publish directory changes from `.` (repo root) to Astro's `dist/`
-  output.
+- Build command changes from `node scripts/build-content.js` to the
+  Eleventy build (plus the Tina admin bundle build).
+- Publish directory changes from `.` (repo root) to Eleventy's output
+  directory (`_site` by default).
 - Everything else (trigger on push to `main`, GitHub Pages publish step,
   custom domain via `CNAME`) is unchanged.
 
@@ -140,13 +141,22 @@ GitHub.
 
 ## Testing / verification plan
 
-- Local: `astro build` succeeds; output renders identically to the
+Because the Eleventy+Tina+GitHub-Pages combination hasn't been proven
+end-to-end in this project before (only reasoned about from how each tool
+works), the implementation plan front-loads a **minimal smoke test**
+before the full content migration: get a bare-bones Eleventy site with
+Tina's admin wired in actually building to fully static output and
+confirm nothing in that output requires a running server. If that smoke
+test reveals a blocker, stop and revisit before doing the full rewrite.
+
+Beyond that:
+- Local: Eleventy build succeeds; output renders identically to the
   current live site (visual comparison), zero console errors.
-- Local: `tina dev` confirms the visual editing overlay correctly marks
-  every field listed in the Content model section above.
+- Local: Tina's local dev mode shows every field listed in the Content
+  model section above in the admin form.
 - Deployed: GitHub Actions build succeeds and the live site is visually
-  unchanged; Annabelle's Tina Cloud login reaches the visual editor; a
-  real edit-save-rebuild cycle updates the live site end to end.
+  unchanged; Annabelle's Tina Cloud login reaches the admin form; a real
+  edit-save-rebuild cycle updates the live site end to end.
 
 ## Not yet verified (requires live accounts, same caveat as every prior
 CMS iteration on this site)
@@ -155,3 +165,13 @@ CMS iteration on this site)
   real repo.
 - Annabelle's real Tina Cloud signup and editor invite.
 - A real end-to-end save-and-rebuild cycle on the live site.
+
+## Revision history
+
+- **2026-07-17, initial**: Astro + TinaCMS visual live editing, chosen
+  explicitly by the user despite the higher setup cost of wiring an
+  editing bridge into every page.
+- **2026-07-17, revised**: discovered mid-plan that visual editing
+  requires server-side hosting, incompatible with the hard requirement to
+  stay on GitHub Pages. Switched to Eleventy + Tina's non-visual
+  form-based admin, which stays fully static.
