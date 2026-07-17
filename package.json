@@ -2,9 +2,12 @@
   "name": "uitvaartendan",
   "private": true,
   "scripts": {
-    "build": "node scripts/build-content.js"
+    "build": "npx @tinacms/cli build && npx @11ty/eleventy",
+    "dev": "npx tinacms dev -c \"npx @11ty/eleventy --serve\""
   },
   "dependencies": {
-    "js-yaml": "^4.1.0"
+    "@11ty/eleventy": "^3.1.6",
+    "tinacms": "^3.11.0",
+    "@tinacms/cli": "^2.5.6"
   }
 }
