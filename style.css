@@ -553,12 +553,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 .tag {
-  background: var(--color-sky-light);
   color: var(--color-text);
-  border-radius: 999px;
-  padding: 8px 18px;
+  padding: 8px 4px;
   font-size: var(--fs-sm);
   font-weight: 700;
+  border-bottom: 2px solid var(--color-sage);
 }
 
 /* ---------- Diensten pagina ---------- */
