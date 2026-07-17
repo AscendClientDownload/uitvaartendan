@@ -557,7 +557,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   padding: 8px 4px;
   font-size: var(--fs-sm);
   font-weight: 700;
-  border-bottom: 2px solid var(--color-sage);
+  border-bottom: 2px solid var(--color-text);
 }
 
 /* ---------- Diensten pagina ---------- */
