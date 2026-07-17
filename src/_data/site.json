@@ -58,7 +58,11 @@
     "missie_tekst": "Het persoonlijke contact, de praktische organisatie en de mogelijkheid om alles aan te passen per situatie — dat is wat Uitvaart en dan? anders maakt. Ik help je, stap voor stap, in het tempo dat bij jou past.",
     "cta_titel": "Nieuwsgierig wat ik voor jou kan betekenen?",
     "cta_knop": "Neem contact op",
-    "tags": ["Persoonlijk contact", "Praktische organisatie", "Aanpasbaar per situatie"]
+    "tags": [
+      "Persoonlijk contact",
+      "Praktische organisatie",
+      "Aanpasbaar per situatie"
+    ]
   },
   "diensten": {
     "titel": "Diensten",
@@ -94,7 +98,14 @@
     "op_maat_tekst": "Geen enkele situatie is hetzelfde. Naast de vaste pakketten is er altijd ruimte om onderdelen toe te voegen of aan te passen, zodat de begeleiding precies aansluit bij wat jij nodig hebt.",
     "doelgroepen_titel": "Ook voor professionals",
     "doelgroepen_tekst": "Bent u werkzaam bij een uitvaartorganisatie, notariskantoor, mantelzorgorganisatie, hospice, verpleeghuis of WMO-loket? Ik denk graag mee over hoe ik als vaste partner nabestaanden praktisch kan ondersteunen na een overlijden.",
-    "doelgroep_tags": ["Uitvaartorganisaties", "Notarissen", "Mantelzorgorganisaties", "Hospices", "Verpleegtehuizen", "WMO-loketten"],
+    "doelgroep_tags": [
+      "Uitvaartorganisaties",
+      "Notarissen",
+      "Mantelzorgorganisaties",
+      "Hospices",
+      "Verpleegtehuizen",
+      "WMO-loketten"
+    ],
     "cta_titel": "Benieuwd wat bij jou past?",
     "cta_tekst": "Neem contact op voor een vrijblijvend gesprek.",
     "cta_knop": "Neem contact op"
