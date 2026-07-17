@@ -1,0 +1,19 @@
+{% set prefix = "" if page.url == "/" else "/" %}
+<div class="nav-inner">
+  <a href="{{ prefix }}#home" class="nav-logo">
+    <img src="/images/logo-icon.png" alt="" class="nav-logo-icon" width="40" height="40">
+    <span>{{ site.bedrijf.naam }}</span>
+  </a>
+  <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Menu openen">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="navMenu" class="nav-menu">
+    <ul class="nav-list">
+      <li><a href="{{ prefix }}#home" class="nav-link" data-section="#home">{{ site.navigatie.home }}</a></li>
+      <li><a href="{{ prefix }}#over-ons" class="nav-link" data-section="#over-ons">{{ site.navigatie.over_ons }}</a></li>
+      <li><a href="{{ prefix }}#diensten" class="nav-link" data-section="#diensten">{{ site.navigatie.diensten }}</a></li>
+      <li><a href="{{ prefix }}#contact" class="nav-link" data-section="#contact">{{ site.navigatie.contact }}</a></li>
+    </ul>
+    <a href="{{ prefix }}#contact" class="btn btn-primary nav-cta">{{ site.navigatie.cta_knop }}</a>
+  </nav>
+</div>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https://www.google.com; form-action 'self' https://formspree.io; base-uri 'self';">
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+
+  <meta property="og:title" content="{{ ogTitle or title }}">
+  <meta property="og:description" content="{{ ogDescription or description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:url" content="https://www.uitvaartendan.nl{{ page.url }}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ ogTitle or title }}">
+  <meta name="twitter:description" content="{{ ogDescription or description }}">
+
+  <link rel="canonical" href="https://www.uitvaartendan.nl{{ canonical or page.url }}">
+
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <meta name="theme-color" content="#8FA593">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/style.css">
+
+  {% if isHome %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Uitvaart en dan?",
+    "description": "Praktische en persoonlijke begeleiding voor nabestaanden na een uitvaart.",
+    "url": "https://www.uitvaartendan.nl/",
+    "telephone": "+31619421856",
+    "email": "info@uitvaartendan.nl",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Riddersborch 5",
+      "postalCode": "3992 BG",
+      "addressLocality": "Houten",
+      "addressCountry": "NL"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "09:00",
+      "closes": "21:00"
+    },
+    "areaServed": "Houten en omgeving",
+    "priceRange": "€€"
+  }
+  </script>
+  {% endif %}
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Ga direct naar de inhoud</a>
+
+  <header class="site-header">
+    {% include "nav.njk" %}
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    {% include "footer.njk" %}
+  </footer>
+
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookiemelding" hidden>
+    <p>Deze website gebruikt cookies om goed te werken. Meer weten? Lees de <a href="/cookieverklaring/">cookieverklaring</a>.</p>
+    <button type="button" class="btn btn-primary" id="cookieAccept">Akkoord</button>
+  </div>
+
+  <script src="/assets/site.js" defer></script>
+</body>
+</html>

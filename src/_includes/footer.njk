@@ -1,0 +1,25 @@
+<div class="footer-inner">
+  <div class="footer-col">
+    <p class="footer-logo"><img src="/images/logo-icon.png" alt="" width="32" height="32">{{ site.bedrijf.naam }}</p>
+    <p class="footer-text">{{ site.footer.tekst }}</p>
+  </div>
+  <div class="footer-col">
+    <p class="footer-heading">Contact</p>
+    <p><a href="tel:{{ site.bedrijf.telefoon_href }}">{{ site.bedrijf.telefoon }}</a></p>
+    <p><a href="mailto:{{ site.bedrijf.email }}">{{ site.bedrijf.email }}</a></p>
+    <p>{{ site.bedrijf.straat }}<br>{{ site.bedrijf.postcode_plaats }}</p>
+  </div>
+  <div class="footer-col">
+    <p class="footer-heading">Openingstijden</p>
+    <p>{{ site.bedrijf.openingstijden }}</p>
+  </div>
+</div>
+<div class="footer-bottom">
+  <p>&copy; {{ year }} {{ site.bedrijf.naam }} — {{ site.footer.copyright }}</p>
+  <ul class="footer-legal-links">
+    <li><a href="/algemene-voorwaarden/">Algemene voorwaarden</a></li>
+    <li><a href="/privacyverklaring/">Privacyverklaring</a></li>
+    <li><a href="/cookieverklaring/">Cookieverklaring</a></li>
+    <li><a href="/disclaimer/">Disclaimer</a></li>
+  </ul>
+</div>
