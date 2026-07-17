@@ -305,12 +305,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   border-bottom-color: var(--color-sage);
 }
 
-.nav-link--legal:first-of-type {
-  margin-left: 2px;
-  padding-left: 14px;
-  border-left: 1px solid var(--color-border);
-}
-
 .nav-cta {
   padding: 10px 22px;
   font-size: var(--fs-sm);
@@ -921,15 +915,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .nav-cta {
     margin-top: 12px;
     width: 100%;
-  }
-
-  .nav-link--legal:first-of-type {
-    margin-left: 0;
-    padding-left: 0;
-    padding-top: 16px;
-    margin-top: 8px;
-    border-left: none;
-    border-top: 1px solid var(--color-border);
   }
 }
 

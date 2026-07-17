@@ -17,15 +17,6 @@ const NAV_SECTIONS = [
   { href: "#contact", label: (nav) => nav.contact },
 ];
 
-// Juridische pagina's — losse pagina's, geen anker op index.html.
-// Cookies staat hier bewust niet bij: dat wordt afgehandeld via de
-// cookiemelding onderin het scherm, niet via een menu-item.
-const LEGAL_LINKS = [
-  { href: "/algemene-voorwaarden", label: "Voorwaarden" },
-  { href: "/privacyverklaring", label: "Privacy" },
-  { href: "/disclaimer", label: "Disclaimer" },
-];
-
 // De juridische pagina's (voorwaarden, privacy, disclaimer, cookies) staan
 // los van index.html. Op die pagina's moet een menu-anker eerst terug naar
 // de homepage linken voordat het naar de sectie springt.
@@ -43,10 +34,6 @@ function buildNav() {
     (link) => `<li><a href="${prefix}${link.href}" class="nav-link" data-section="${link.href}">${link.label(nav)}</a></li>`
   ).join("");
 
-  const legalLinkHtml = LEGAL_LINKS.map(
-    (link) => `<li><a href="${link.href}" class="nav-link nav-link--legal">${link.label}</a></li>`
-  ).join("");
-
   return `
     <div class="nav-inner">
       <a href="${prefix}#home" class="nav-logo">
@@ -59,7 +46,6 @@ function buildNav() {
       <nav id="navMenu" class="nav-menu">
         <ul class="nav-list">
           ${linkHtml}
-          ${legalLinkHtml}
         </ul>
         <a href="${prefix}#contact" class="btn btn-primary nav-cta">${nav.cta_knop}</a>
       </nav>
