@@ -51,19 +51,13 @@ layout: base.njk
       <div class="split-text">
         <h2>{{ site.over_ons.titel }}</h2>
         <p>{{ site.over_ons.intro }}</p>
+        <p>{{ site.over_ons.paragraaf_1 }}</p>
+        {% if site.over_ons.paragraaf_2 %}<p>{{ site.over_ons.paragraaf_2 }}</p>{% endif %}
+        {% if site.over_ons.paragraaf_3 %}<p>{{ site.over_ons.paragraaf_3 }}</p>{% endif %}
+        <span class="eyebrow" style="display: block; margin-top: 28px;">Missie</span>
+        <h3>{{ site.over_ons.missie_titel }}</h3>
+        <p>{{ site.over_ons.missie_tekst }}</p>
       </div>
-    </div>
-
-    <div class="prose" style="max-width: 720px; margin: 48px auto 0;">
-      <p>{{ site.over_ons.paragraaf_1 }}</p>
-      {% if site.over_ons.paragraaf_2 %}<p>{{ site.over_ons.paragraaf_2 }}</p>{% endif %}
-      {% if site.over_ons.paragraaf_3 %}<p>{{ site.over_ons.paragraaf_3 }}</p>{% endif %}
-    </div>
-
-    <div class="section-header">
-      <span class="eyebrow">Missie</span>
-      <h2>{{ site.over_ons.missie_titel }}</h2>
-      <p>{{ site.over_ons.missie_tekst }}</p>
     </div>
 
     <div class="tag-list" style="justify-content: center;">
@@ -92,6 +86,7 @@ layout: base.njk
           <li>{{ item }}</li>
           {% endfor %}
         </ul>
+        <p class="form-note">{{ site.diensten.reiskosten_tekst }}</p>
         <a href="#contact" class="btn btn-primary btn-block">Neem contact op</a>
       </div>
 
@@ -104,6 +99,7 @@ layout: base.njk
           <li>{{ item }}</li>
           {% endfor %}
         </ul>
+        <p class="form-note">{{ site.diensten.reiskosten_tekst }}</p>
         <a href="#contact" class="btn btn-secondary btn-block">Neem contact op</a>
       </div>
 
@@ -226,7 +222,7 @@ layout: base.njk
           </div>
 
           <button type="submit" class="btn btn-primary btn-block">{{ site.contact.knop_verzenden }}</button>
-          <p class="form-note">Je bericht komt rechtstreeks in de mailbox van Annabelle terecht. Ze reageert zo snel mogelijk.</p>
+          <p class="form-note">Je bericht komt rechtstreeks in de mailbox van Annabelle terecht. Ze reageert zo snel mogelijk. Door dit bericht te versturen ga je akkoord met onze <a href="/privacyverklaring/">privacyverklaring</a>.</p>
         </form>
       </div>
 
