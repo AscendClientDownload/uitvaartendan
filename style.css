@@ -888,6 +888,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 @media (max-width: 1200px) {
   .nav-toggle {
     display: flex;
+    margin-left: auto;
   }
 
   .nav-menu {
