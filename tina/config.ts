@@ -134,6 +134,7 @@ export default defineConfig({
                   { type: "string", name: "items", label: "Onderdelen van dit pakket", list: true },
                 ],
               },
+              { type: "string", name: "reiskosten_tekst", label: "Voetnoottekst reiskosten (onder de pakketten)", ui: { component: "textarea" } },
               { type: "string", name: "op_maat_titel", label: "Titel \"Altijd op maat\"" },
               { type: "string", name: "op_maat_tekst", label: "Tekst \"Altijd op maat\"", ui: { component: "textarea" } },
               { type: "string", name: "doelgroepen_titel", label: "Titel \"Ook voor professionals\"" },

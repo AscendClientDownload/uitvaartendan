@@ -69,7 +69,7 @@
     "intro": "Ik werk met duidelijke pakketten als basis, maar elke situatie is anders. Tijdens het intakegesprek brengen we samen in kaart wat er nodig is en wat het beste bij jouw situatie past.",
     "pakket_1": {
       "naam": "Basispakket",
-      "prijs": "€ 395,-",
+      "prijs": "€ 395,-*",
       "beschrijving": "Een overzichtelijk startpunt: samen brengen we in kaart wat er geregeld moet worden, en zet ik de eerste stappen met je uit.",
       "items": [
         "Intakegesprek (1 uur)",
@@ -82,7 +82,7 @@
     },
     "pakket_2": {
       "naam": "Uitgebreid pakket",
-      "prijs": "€ 795,-",
+      "prijs": "€ 795,-*",
       "beschrijving": "Van overzicht naar uitvoering: niet alleen een plan, maar ook praktische hulp om echt stappen te zetten. Ook geschikt om in te zetten voor ondersteunende diensten als het opruimen, sorteren en afvoeren van spullen.",
       "items": [
         "Intakegesprek (1 uur)",
@@ -96,6 +96,7 @@
         "Totaal 10,5 uur"
       ]
     },
+    "reiskosten_tekst": "*Er geldt een reiskostenvergoeding van €0,23 per km en de eerste 15 minuten reistijd zijn gratis; daarna wordt €35 per half uur berekend.",
     "op_maat_titel": "Altijd op maat",
     "op_maat_tekst": "Geen enkele situatie is hetzelfde. Naast de vaste pakketten is er altijd ruimte om onderdelen toe te voegen of aan te passen, zodat de begeleiding precies aansluit bij wat jij nodig hebt.",
     "doelgroepen_titel": "Ook voor professionals",
