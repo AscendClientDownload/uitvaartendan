@@ -449,7 +449,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 .split-image {
-  aspect-ratio: 4 / 3;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
   overflow: hidden;
@@ -457,9 +456,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 .split-image img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
+  height: auto;
   display: block;
 }
 
