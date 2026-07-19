@@ -57,15 +57,17 @@ layout: base.njk
         <span class="eyebrow" style="display: block; margin-top: 28px;">Missie</span>
         <h3>{{ site.over_ons.missie_titel }}</h3>
         <p>{{ site.over_ons.missie_tekst }}</p>
-        <p style="margin-top: 24px; font-weight: 700;">{{ site.over_ons.cta_titel }}</p>
-        <a href="#contact" class="btn btn-primary">{{ site.over_ons.cta_knop }}</a>
+        <div class="tag-list" style="margin-top: 20px;">
+          {% for tag in site.over_ons.tags %}
+          <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
       </div>
     </div>
 
-    <div class="tag-list" style="justify-content: center;">
-      {% for tag in site.over_ons.tags %}
-      <span class="tag">{{ tag }}</span>
-      {% endfor %}
+    <div style="text-align: center; margin-top: 40px;">
+      <p style="font-weight: 700;">{{ site.over_ons.cta_titel }}</p>
+      <a href="#contact" class="btn btn-primary" style="margin-top: 16px;">{{ site.over_ons.cta_knop }}</a>
     </div>
   </div>
 </section>
