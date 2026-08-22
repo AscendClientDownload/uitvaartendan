@@ -37,7 +37,7 @@ export default defineConfig({
               { type: "string", name: "email", label: "E-mailadres" },
               { type: "string", name: "straat", label: "Straat en huisnummer" },
               { type: "string", name: "postcode_plaats", label: "Postcode en plaats" },
-              { type: "string", name: "openingstijden", label: "Openingstijden", ui: { component: "textarea" } },
+              { type: "string", name: "openingstijden", label: "Openingstijden" },
             ],
           },
           {
