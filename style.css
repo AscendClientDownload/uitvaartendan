@@ -373,13 +373,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .hero-inner {
   position: relative;
   z-index: 1;
-  display: flex;
-  justify-content: center;
   text-align: center;
 }
 
 .hero-text {
   max-width: 640px;
+  margin: 0 auto;
 }
 
 /* Zachte lichte gloed achter de tekst, zodat de titel en ondertitel
@@ -654,6 +653,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .contact-info-item a {
   color: var(--color-sage-dark);
   font-weight: 700;
+}
+
+.openingstijden {
+  white-space: pre-line;
+  line-height: 1.7;
 }
 
 .map-embed {
